@@ -1,0 +1,16 @@
+syntax: glob
+
+Thumbs.db
+/*.bak.*
+/*.bak
+thumbs.db
+App_Data/*
+bin/*
+obj/*
+_ReSharper.*/
+tmp/
+/*.user
+/*.suo
+/*.pidb
+/*.userprefs
+/*.usertasks
