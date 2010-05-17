@@ -47,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdHocSpecification.cs" />
+    <Compile Include="AndSpecification.cs" />
+    <Compile Include="OrSpecification.cs" />
+    <Compile Include="Specification.cs" />
+    <Compile Include="NegateSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
