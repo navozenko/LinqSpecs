@@ -14,3 +14,4 @@ tmp/
 /*.pidb
 /*.userprefs
 /*.usertasks
+*.ReSharper.user
