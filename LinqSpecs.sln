@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs", "LinqSpecs\LinqSpecs.csproj", "{D60875A3-0DE2-409D-86A0-F540224D054C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs.Tests", "LinqSpecs.Tests\LinqSpecs.Tests.csproj", "{0FBC6204-F18A-4D96-9C5E-39F925E7427C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D60875A3-0DE2-409D-86A0-F540224D054C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60875A3-0DE2-409D-86A0-F540224D054C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60875A3-0DE2-409D-86A0-F540224D054C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60875A3-0DE2-409D-86A0-F540224D054C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBC6204-F18A-4D96-9C5E-39F925E7427C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBC6204-F18A-4D96-9C5E-39F925E7427C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBC6204-F18A-4D96-9C5E-39F925E7427C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBC6204-F18A-4D96-9C5E-39F925E7427C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
