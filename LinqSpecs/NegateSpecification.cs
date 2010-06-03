@@ -16,8 +16,7 @@ namespace LinqSpecs
 		{
 			ParameterExpression param = Expression.Parameter(typeof(T), "x");
 			return Expression.Lambda<Func<T, bool>>(
-				Expression.Not(
-					Expression.Invoke(spec.IsSatisfiedBy(), param)), param);
+				Expression.Not(spec.IsSatisfiedBy().Body), spec.IsSatisfiedBy().Parameters);
 		}
 
 		public bool Equals(NegateSpecification<T> other)
