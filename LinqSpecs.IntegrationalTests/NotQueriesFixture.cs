@@ -30,7 +30,7 @@ namespace LinqSpecs.IntegrationalTests
 			using (var tx = s.BeginTransaction())
 			{
 
-				var result = s.Query<Album>()
+				s.Query<Album>()
 					.Count(or.IsSatisfiedBy())
 					.Should().Be.GreaterThan(0);
 			}
