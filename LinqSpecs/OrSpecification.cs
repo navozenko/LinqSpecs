@@ -17,10 +17,7 @@ namespace LinqSpecs
 		public override Expression<Func<T, bool>> IsSatisfiedBy()
 		{
 			ParameterExpression param = Expression.Parameter(typeof(T), "x");
-			return Expression.Lambda<Func<T, bool>>(
-				Expression.OrElse(
-					Expression.Invoke(spec1.IsSatisfiedBy(), param),
-					Expression.Invoke(spec2.IsSatisfiedBy(), param)), param);
+			return spec1.IsSatisfiedBy().OrElse(spec2.IsSatisfiedBy());
 		}
 
 		public bool Equals(OrSpecification<T> other)
