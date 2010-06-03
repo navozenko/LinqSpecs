@@ -89,6 +89,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AndAlsoOrElseFixture.cs" />
     <Compile Include="AndQueriesFixture.cs" />
     <Compile Include="NotQueriesFixture.cs" />
     <Compile Include="OrQueriesFixture.cs" />

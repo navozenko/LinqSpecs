@@ -14,7 +14,7 @@ namespace LinqSpecs
 
 		public static bool operator false(Specification<T> spec1)
 		{
-			return true; // no-op. & and && do exactly the same thing.
+			return false; // no-op. & and && do exactly the same thing.
 		}
 
 		public static bool operator true(Specification<T> spec1)
