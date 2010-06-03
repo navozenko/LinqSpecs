@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="Chinook.Domain"
+				   namespace="Chinook.Domain">
+  <class name="Track">
+    <id name="TrackId" column="TrackId">
+      <generator class="hilo"/>
+    </id>
+
+    <property name="Name" />
+    <many-to-one name="Album" class="Album" column="AlbumId" />
+    <many-to-one name="MediaType" class="MediaType" column="MediaTypeId" />
+    <many-to-one name="Genre" class="Genre" column="GenreId" />
+    <property name="Composer" />
+    <property name="Milliseconds" />
+    <property name="Bytes" />
+    <property name="UnitPrice">
+      <column name="UnitPrice"  sql-type="numeric(10,2)" />
+    </property>
+  </class>
+  
+</hibernate-mapping>

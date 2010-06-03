@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="Chinook.Domain"
+				   namespace="Chinook.Domain">
+  <class name="MediaType">
+    <id name="MediaTypeId" column="MediaTypeId">
+      <generator class="hilo"/>
+    </id>
+
+    <property name="Name" />
+
+  </class>
+</hibernate-mapping>
