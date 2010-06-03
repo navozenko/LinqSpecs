@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AdHocSpecification.cs" />
     <Compile Include="AndSpecification.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="OrSpecification.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="NegateSpecification.cs" />
