@@ -5,6 +5,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs", "LinqSpecs\Linq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs.Tests", "LinqSpecs.Tests\LinqSpecs.Tests.csproj", "{0FBC6204-F18A-4D96-9C5E-39F925E7427C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleDomain", "SampleDomain", "{2F498BDA-7A0F-4972-B2FF-982ACDF5192C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chinook.Data.NH", "Chinook\Chinook.Data.NH\Chinook.Data.NH.csproj", "{E5C412E8-5E62-4332-AFB7-EB776D654101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chinook.Domain", "Chinook\Chinook.Domain\Chinook.Domain.csproj", "{443B2ED6-D1D7-4FFE-8B0B-A03F28FA9D81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs.IntegrationalTests", "LinqSpecs.IntegrationalTests\LinqSpecs.IntegrationalTests.csproj", "{31BF8FF3-FD04-4E0D-83CF-5A39AAF3D41C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +27,24 @@ Global
 		{0FBC6204-F18A-4D96-9C5E-39F925E7427C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FBC6204-F18A-4D96-9C5E-39F925E7427C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FBC6204-F18A-4D96-9C5E-39F925E7427C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C412E8-5E62-4332-AFB7-EB776D654101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C412E8-5E62-4332-AFB7-EB776D654101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C412E8-5E62-4332-AFB7-EB776D654101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C412E8-5E62-4332-AFB7-EB776D654101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{443B2ED6-D1D7-4FFE-8B0B-A03F28FA9D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443B2ED6-D1D7-4FFE-8B0B-A03F28FA9D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443B2ED6-D1D7-4FFE-8B0B-A03F28FA9D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{443B2ED6-D1D7-4FFE-8B0B-A03F28FA9D81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31BF8FF3-FD04-4E0D-83CF-5A39AAF3D41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31BF8FF3-FD04-4E0D-83CF-5A39AAF3D41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31BF8FF3-FD04-4E0D-83CF-5A39AAF3D41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31BF8FF3-FD04-4E0D-83CF-5A39AAF3D41C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5C412E8-5E62-4332-AFB7-EB776D654101} = {2F498BDA-7A0F-4972-B2FF-982ACDF5192C}
+		{443B2ED6-D1D7-4FFE-8B0B-A03F28FA9D81} = {2F498BDA-7A0F-4972-B2FF-982ACDF5192C}
 	EndGlobalSection
 EndGlobal
