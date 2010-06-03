@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="Chinook.Domain"
+				   namespace="Chinook.Domain">
+  <class name="InvoiceLine">
+    <id name="InvoiceLineId" column="InvoiceLineId">
+      <generator class="hilo"/>
+    </id>
+
+
+    <many-to-one name="Invoice" class="Invoice" column="InvoiceId" />
+    <many-to-one name="Track" class="Track" column="TrackId" />
+    <property name="Quantity" />
+    <property name="UnitPrice">
+      <column name="UnitPrice"  sql-type="numeric(10,2)" />
+    </property>
+  </class>
+  
+</hibernate-mapping>

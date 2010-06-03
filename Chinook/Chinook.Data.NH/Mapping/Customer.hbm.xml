@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="Chinook.Domain"
+				   namespace="Chinook.Domain">
+  <class name="Customer">
+    <id name="CustomerId" column="CustomerId">
+      <generator class="hilo"/>
+    </id>
+
+    <property name="FirstName" />
+    <property name="LastName" />
+    <property name="Company" />
+    <property name="Address" />
+    <property name="City" />
+    <property name="State" />
+    <property name="Country" />
+    <property name="PostalCode" />
+    <property name="Phone" />
+    <property name="Fax" />
+    <property name="Email" />
+    <many-to-one name="SupportRepresentant" class="Employee" column="SupportRepId" />
+
+  </class>
+  
+</hibernate-mapping>

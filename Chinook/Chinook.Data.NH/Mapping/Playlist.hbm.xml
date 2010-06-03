@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="Chinook.Domain"
+				   namespace="Chinook.Domain">
+  <class name="Playlist">
+    <id name="PlaylistId" column="PlaylistId">
+      <generator class="hilo"/>
+    </id>
+
+    <property name="Name" />
+
+    <bag name="Tracks" table="PlaylistTrack">
+      <key column="PlaylistId" />
+      <many-to-many class="Track" column="TrackId" />
+    </bag>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="Chinook.Domain" namespace="Chinook.Domain">
+  
+  <class name="Invoice">
+    <id name="InvoiceId">
+      <generator class="hilo"/>
+    </id>
+
+    <many-to-one name="Customer" class="Customer" column="CustomerId" />
+    
+    <property name="InvoiceDate" />
+    <property name="BillingAddress" />
+    <property name="BillingCity" />
+    <property name="BillingState" />
+    <property name="BillingCountry" />
+    <property name="BillingPostalCode" />
+    
+    <property name="Total" access="readonly">
+      <column name="Total"  sql-type="numeric(10,2)"  />
+    </property>
+    
+    <bag name="Lines" inverse="true">
+      <key column="InvoiceId" />
+      <one-to-many class="InvoiceLine" />
+    </bag>
+    
+  </class>
+  
+</hibernate-mapping>
