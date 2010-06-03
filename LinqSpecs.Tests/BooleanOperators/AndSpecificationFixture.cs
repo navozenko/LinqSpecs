@@ -68,5 +68,7 @@ namespace LinqSpecs.Tests.BooleanOperators
 
 			spec.Should().Not.Be.EqualTo(startWithJ & endsWithF);
 		}
+
+		
 	}
 }
