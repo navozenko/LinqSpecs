@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Linq;
 
 namespace LinqSpecs
 {
@@ -31,5 +32,26 @@ namespace LinqSpecs
 		{
 			return new NegateSpecification<T>(spec1);
 		}
+
+		protected virtual object[] Parameters { get { return new object[] {Guid.NewGuid()}; } }
+
+		public bool Equals(Specification<T> other)
+		{
+			return Parameters.SequenceEqual(other.Parameters);
+		}
+
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj)) return false;
+			if (ReferenceEquals(this, obj)) return true;
+			if (obj.GetType() != GetType()) return false;
+			return Equals((Specification<T>)obj);
+		}
+
+		public override int GetHashCode()
+		{
+			return Parameters.GetHashCode();
+		}
+
 	}
 }

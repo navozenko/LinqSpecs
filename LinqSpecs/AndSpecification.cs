@@ -1,13 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AndSpecification.cs" company="">
-//   
-// </copyright>
-// <summary>
-//   The and specification.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace LinqSpecs
+﻿namespace LinqSpecs
 {
 	using System;
 	using System.Linq.Expressions;
@@ -29,53 +20,26 @@ namespace LinqSpecs
 			this.spec2 = spec2;
 		}
 
-		public bool Equals(AndSpecification<T> other)
+		protected override object[] Parameters
 		{
-			if (ReferenceEquals(null, other))
+			get
 			{
-				return false;
-			}
-
-			if (ReferenceEquals(this, other))
-			{
-				return true;
-			}
-
-			return Equals(other.spec1, this.spec1) && Equals(other.spec2, this.spec2);
-		}
-
-		public override bool Equals(object obj)
-		{
-			if (ReferenceEquals(null, obj))
-			{
-				return false;
-			}
-
-			if (ReferenceEquals(this, obj))
-			{
-				return true;
-			}
-
-			if (obj.GetType() != typeof(AndSpecification<T>))
-			{
-				return false;
-			}
-
-			return this.Equals((AndSpecification<T>)obj);
-		}
-
-		public override int GetHashCode()
-		{
-			unchecked
-			{
-				return ((this.spec1 != null ? this.spec1.GetHashCode() : 0) * 397) ^
-					   (this.spec2 != null ? this.spec2.GetHashCode() : 0);
+				return new[] {spec1, spec2};
 			}
 		}
 
 		public override Expression<Func<T, bool>> IsSatisfiedBy()
 		{
-			return this.spec1.IsSatisfiedBy().AndAlso(this.spec2.IsSatisfiedBy());
+			var expr1 = spec1.IsSatisfiedBy();
+			var expr2 = spec2.IsSatisfiedBy();
+			ParameterExpression param = expr1.Parameters[0];
+			if (ReferenceEquals(param, expr2.Parameters[0]))
+			{
+				return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(expr1.Body, expr2.Body), param);
+			}
+
+			return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(expr1.Body, Expression.Invoke(expr2, param)),
+					param);
 		}
 	}
 }
