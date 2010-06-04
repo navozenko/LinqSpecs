@@ -7,25 +7,6 @@ using SharpTestsEx;
 namespace LinqSpecs.IntegrationalTests
 {
 
-
-	public class ByArtistSpecification : Specification<Album>
-	{
-		private readonly Artist artist;
-
-		public ByArtistSpecification(Artist artist)
-		{
-			this.artist = artist;
-		}
-
-		public Artist Artist { get; set; }
-
-		public override Expression<Func<Album, bool>> IsSatisfiedBy()
-		{
-			return a => a.Artist == Artist;
-		}
-	}
-
-
 	[TestFixture]
 	public class AndAlsoOrElseFixture
 	{
