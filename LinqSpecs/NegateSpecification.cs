@@ -19,24 +19,12 @@ namespace LinqSpecs
 				Expression.Not(spec.IsSatisfiedBy().Body), spec.IsSatisfiedBy().Parameters);
 		}
 
-		public bool Equals(NegateSpecification<T> other)
+		protected override object[] Parameters
 		{
-			if (ReferenceEquals(null, other)) return false;
-			if (ReferenceEquals(this, other)) return true;
-			return Equals(other.spec, spec);
-		}
-
-		public override bool Equals(object obj)
-		{
-			if (ReferenceEquals(null, obj)) return false;
-			if (ReferenceEquals(this, obj)) return true;
-			if (obj.GetType() != typeof (NegateSpecification<T>)) return false;
-			return Equals((NegateSpecification<T>) obj);
-		}
-
-		public override int GetHashCode()
-		{
-			return (spec != null ? spec.GetHashCode() : 0);
+			get
+			{
+				return new[] {spec};
+			}
 		}
 	}
 }
