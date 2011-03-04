@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace LinqSpecs
 {
+	[Serializable]
 	public abstract class Specification<T>
 	{
 		public abstract Expression<Func<T, bool>> IsSatisfiedBy();
