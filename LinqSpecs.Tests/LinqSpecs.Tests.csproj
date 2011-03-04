@@ -58,6 +58,7 @@
     <Compile Include="BooleanOperators\AndSpecificationFixture.cs" />
     <Compile Include="BooleanOperators\NegateSpecificationFixture.cs" />
     <Compile Include="BooleanOperators\OrSpecificationFixture.cs" />
+    <Compile Include="ExpressionSerialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DomainSample\SampleRepository.cs" />
     <Compile Include="OtherSamples.cs" />
