@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Linq;
 using System.Globalization;
 using System.Xml;
@@ -148,6 +150,36 @@ namespace LinqSpecs.ExpressionSerialization
                 result = value.ToString();
             return new XElement(propName,
                 result);
+        }
+
+
+        private object GenerateXmlFromObject2(string propName, object value)
+        {
+            object result = null;
+            if (value is Type)
+                result = GenerateXmlFromTypeCore((Type)value);
+            if (propName == "Value" && value != null)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    new BinaryFormatter().Serialize(stream, value);
+                    stream.Seek(0, SeekOrigin.Begin);
+                    var buffer = new byte[stream.Length];
+                    stream.Read(buffer, 0, buffer.Length);
+                    result = Convert.ToBase64String(buffer);
+                }
+            }
+            if (result == null)
+                if (value == null)
+                {
+                    result = "null";
+                }
+                else
+                {
+                    result = value.ToString();
+                }
+            return new XElement(propName,
+                                result);
         }
 
         private bool IsIEnumerableOf<T>(Type propType)
