@@ -431,6 +431,7 @@ namespace LinqSpecs.ExpressionSerialization
 						case "TypedConstantExpression":
 							return ParseConstatExpressionFromXml(xml);
 						case "ParameterExpression":
+						case "PrimitiveParameterExpression_x0060_1":
 						case "PrimitiveParameterExpressionx00601":
 						case "TypedParameterExpression":
 							return ParseParameterExpressionFromXml(xml);
