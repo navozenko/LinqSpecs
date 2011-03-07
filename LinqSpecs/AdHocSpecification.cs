@@ -13,9 +13,12 @@ namespace LinqSpecs
 
 		public AdHocSpecification(Expression<Func<T, bool>> specification)
 		{
-			//this.specification = specification;
+
+		    var cleanedExpression = ExpressionUtility.Ensure(specification);
+
+            //this.specification = specification;
 		    var serializer = new ExpressionSerializer();
-		    var serializedExpression = serializer.Serialize(specification);
+		    var serializedExpression = serializer.Serialize(cleanedExpression);
 		    serializedExpressionXml = serializedExpression.ToString();
 		}
 
