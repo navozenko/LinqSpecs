@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BooleanOperators\AndSpecificationFixture.cs" />
-    <Compile Include="BooleanOperators\ImplicitConversions.cs" />
+    <Compile Include="ImplicitConversions.cs" />
     <Compile Include="BooleanOperators\NegateSpecificationFixture.cs" />
     <Compile Include="BooleanOperators\OrSpecificationFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

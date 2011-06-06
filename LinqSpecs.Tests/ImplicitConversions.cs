@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using NUnit.Framework;
 using SharpTestsEx;
 
-namespace LinqSpecs.Tests.BooleanOperators
+namespace LinqSpecs.Tests
 {
     [TestFixture]
     public class ImplicitConversions
