@@ -1,11 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleDomain", "SampleDomain", "{2F498BDA-7A0F-4972-B2FF-982ACDF5192C}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs", "LinqSpecs\LinqSpecs.csproj", "{D60875A3-0DE2-409D-86A0-F540224D054C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs.Tests", "LinqSpecs.Tests\LinqSpecs.Tests.csproj", "{0FBC6204-F18A-4D96-9C5E-39F925E7427C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleDomain", "SampleDomain", "{2F498BDA-7A0F-4972-B2FF-982ACDF5192C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chinook.Data.NH", "Chinook\Chinook.Data.NH\Chinook.Data.NH.csproj", "{E5C412E8-5E62-4332-AFB7-EB776D654101}"
 EndProject
