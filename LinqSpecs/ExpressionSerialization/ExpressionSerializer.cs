@@ -44,23 +44,22 @@ namespace LinqSpecs.ExpressionSerialization
             Converters = new List<CustomExpressionXmlConverter>();
         }
 
-        
-        
+
+
         /*
          * SERIALIZATION 
          */
 
         public XElement Serialize(Expression e)
         {
-					try
-					{
-						return GenerateXmlFromExpressionCore(e);
-					}
-					catch (Exception ex)
-					{
-
-					}
-					return null;
+            try
+            {
+                return GenerateXmlFromExpressionCore(e);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private XElement GenerateXmlFromExpressionCore(Expression e)
@@ -80,7 +79,7 @@ namespace LinqSpecs.ExpressionSerialization
 								propList.Add(new PropValue { Property = prop, Value = val });
 								//return new XElement(GetNameOfExpression(e), GenerateXmlFromProperty(prop.PropertyType, prop.Name, prop.GetValue(e, null)));
 							}
-							catch (MethodAccessException ex)
+							catch (MethodAccessException)
 							{
 								propList.Add(new PropValue { Property = prop, Value = e.Type });
 								//return new XElement(GetNameOfExpression(e), GenerateXmlFromProperty(prop.PropertyType, prop.Name, null));
@@ -104,13 +103,12 @@ namespace LinqSpecs.ExpressionSerialization
             return null;
         }
 
-				private string GetNameOfExpression(Expression e)
-				{
-					if (e is LambdaExpression)
-						return "LambdaExpression";
-					return XmlConvert.EncodeName(e.GetType().Name);
-				}
-
+        private string GetNameOfExpression(Expression e)
+        {
+            if (e is LambdaExpression)
+                return "LambdaExpression";
+            return XmlConvert.EncodeName(e.GetType().Name);
+        }
 
         private object GenerateXmlFromProperty(Type propType, string propName, object value)
         {
