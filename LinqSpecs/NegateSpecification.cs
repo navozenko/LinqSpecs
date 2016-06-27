@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 namespace LinqSpecs
 {
 	[Serializable]
-	public class NegateSpecification<T> : Specification<T>
+	class NegateSpecification<T> : Specification<T>
 	{
 		private readonly Specification<T> spec;
 

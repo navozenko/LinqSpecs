@@ -10,7 +10,7 @@ namespace LinqSpecs
     /// <typeparam name="T">
     /// </typeparam>
     [Serializable]
-    public class OrSpecification<T> : Specification<T>
+    class OrSpecification<T> : Specification<T>
     {
         private readonly Specification<T> spec1;
         private readonly Specification<T> spec2;
@@ -45,6 +45,5 @@ namespace LinqSpecs
             //}
             //return Expression.Lambda<Func<T, bool>>(Expression.OrElse(expr1.Body, Expression.Invoke(expr2, param)), param);
         }
-
     }
 }

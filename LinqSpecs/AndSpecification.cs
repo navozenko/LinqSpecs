@@ -1,17 +1,16 @@
-﻿using LinqSpecs.ExpressionCombining;
+﻿using System;
+using System.Linq.Expressions;
+using LinqSpecs.ExpressionCombining;
 
 namespace LinqSpecs
 {
-	using System;
-	using System.Linq.Expressions;
-
 	/// <summary>
 	/// The and specification.
 	/// </summary>
 	/// <typeparam name="T">
 	/// </typeparam>
 	[Serializable]
-	public class AndSpecification<T> : Specification<T>
+	class AndSpecification<T> : Specification<T>
 	{
 		private readonly Specification<T> spec1;
 
