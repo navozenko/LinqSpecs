@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
-using SharpTestsEx;
 
 namespace LinqSpecs.Tests.BooleanOperators
 {
@@ -14,12 +13,11 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			var specification = new NegateSpecification<string>(startWithJ);
 
-			var result = new SampleRepository()
-				.Retrieve(specification);
+			var result = new SampleRepository().Retrieve(specification);
 
-			result.Satisfy(r => !r.Contains("Jose")
-								&& !r.Contains("Julian")
-								&& r.Contains("Manuel"));
+            CollectionAssert.DoesNotContain(result, "Jose");
+            CollectionAssert.DoesNotContain(result, "Julian");
+            CollectionAssert.Contains(result, "Manuel");
 		}
 
 		[Test]
@@ -27,12 +25,11 @@ namespace LinqSpecs.Tests.BooleanOperators
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			
-			var result = new SampleRepository()
-				.Retrieve(!startWithJ);
+			var result = new SampleRepository().Retrieve(!startWithJ);
 
-			result.Satisfy(r => !r.Contains("Jose")
-								&& !r.Contains("Julian")
-								&& r.Contains("Manuel"));
+            CollectionAssert.DoesNotContain(result, "Jose");
+            CollectionAssert.DoesNotContain(result, "Julian");
+            CollectionAssert.Contains(result, "Manuel");
 		}
 
 		[Test]
@@ -42,8 +39,8 @@ namespace LinqSpecs.Tests.BooleanOperators
 
 			var spec = !startWithJ;
 
-			spec.Should().Be.EqualTo(!startWithJ);
-
+            Assert.IsTrue(spec.Equals(spec));
+            Assert.IsTrue(spec.Equals(!startWithJ));
 		}
 
 		[Test]
@@ -53,9 +50,8 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var anotherAdHocSpec = new AdHocSpecification<string>(n => n.StartsWith("dasdas"));
 
 			var spec = !startWithJ;
-			
-			spec.Should().Not.Be.EqualTo(!anotherAdHocSpec);
 
+            Assert.IsFalse(spec.Equals(!anotherAdHocSpec));
 		}
 	}
 }

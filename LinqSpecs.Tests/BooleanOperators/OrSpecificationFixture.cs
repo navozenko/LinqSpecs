@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
-using SharpTestsEx;
 
 namespace LinqSpecs.Tests.BooleanOperators
 {
@@ -17,9 +16,9 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var result = new SampleRepository()
 				.Retrieve(new OrSpecification<string>(startWithJ, endsWithN));
 
-			result.Satisfy(r => Enumerable.Contains(r, "Jose")
-			                    && Enumerable.Contains(r, "Julian")
-			                    && !Enumerable.Contains(r, "Manuel"));
+            CollectionAssert.Contains(result, "Jose");
+            CollectionAssert.Contains(result, "Julian");
+            CollectionAssert.DoesNotContain(result, "Manuel");
 		}
 
 		[Test]
@@ -28,12 +27,11 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
 
-			var result = new SampleRepository()
-				.Retrieve(startWithJ || endsWithN);
+			var result = new SampleRepository().Retrieve(startWithJ || endsWithN);
 
-			result.Satisfy(r => r.Contains("Jose")
-								&& r.Contains("Julian")
-								&& !r.Contains("Manuel"));
+            CollectionAssert.Contains(result, "Jose");
+            CollectionAssert.Contains(result, "Julian");
+            CollectionAssert.DoesNotContain(result, "Manuel");
 		}
 
 		[Test]
@@ -43,10 +41,8 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));
 			var spec = startWithJ || endsWithE;
 
-			spec.Should().Be.EqualTo(startWithJ || endsWithE);
-
-			spec.Should("orelse is not conmutable")
-				.Not.Be.EqualTo(endsWithE || startWithJ);
+            Assert.IsTrue(spec.Equals(spec));
+            Assert.IsTrue(spec.Equals(startWithJ || endsWithE));
 		}
 
 		[Test]
@@ -57,7 +53,8 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var endsWithF = new AdHocSpecification<string>(n => n.EndsWith("f"));
 			var spec = startWithJ || endsWithE;
 
-			spec.Should().Not.Be.EqualTo(startWithJ || endsWithF);
-		}
-	}
+            Assert.IsFalse(spec.Equals(startWithJ || endsWithF));
+            Assert.IsFalse(spec.Equals(endsWithE || startWithJ)); // OrElse is not commutable
+        }
+    }
 }

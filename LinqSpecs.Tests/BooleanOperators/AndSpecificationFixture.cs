@@ -2,7 +2,6 @@
 using System.Linq;
 using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
-using SharpTestsEx;
 
 namespace LinqSpecs.Tests.BooleanOperators
 {
@@ -19,12 +18,11 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));          
 			var specfication = new AndSpecification<string>(startWithJ, endsWithE);
 
-			IEnumerable<string> result = new SampleRepository()
-				.Retrieve(specfication);
+			IEnumerable<string> result = new SampleRepository().Retrieve(specfication);
 
-			result.Satisfy(r => r.Contains("Jose")
-			                    && !r.Contains("Julian")
-			                    && !r.Contains("Manuel"));
+            CollectionAssert.Contains(result, "Jose");
+            CollectionAssert.DoesNotContain(result, "Julian");
+            CollectionAssert.DoesNotContain(result, "Manuel");
 		}
 
 		[Test]
@@ -33,16 +31,12 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));
 
-
 			// & or && both operators behave as &&.
+			IEnumerable<string> result = new SampleRepository().Retrieve(startWithJ & endsWithE);
 
-			IEnumerable<string> result = new SampleRepository()
-				.Retrieve(startWithJ & endsWithE);
-
-			result.Satisfy(r => r.Contains("Jose")
-								&& !r.Contains("Julian")
-								&& !r.Contains("Manuel"));
-
+            CollectionAssert.Contains(result, "Jose");
+            CollectionAssert.DoesNotContain(result, "Julian");
+            CollectionAssert.DoesNotContain(result, "Manuel");
 		}
 
 		[Test]
@@ -52,10 +46,8 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));
 			var spec = startWithJ & endsWithE;
 
-			spec.Should().Be.EqualTo(startWithJ & endsWithE);
-
-			spec.Should("andalso is not conmutable")
-				.Not.Be.EqualTo(endsWithE & startWithJ);
+            Assert.IsTrue(spec.Equals(spec));
+            Assert.IsTrue(spec.Equals(startWithJ & endsWithE));
 		}
 
 		[Test]
@@ -66,9 +58,8 @@ namespace LinqSpecs.Tests.BooleanOperators
 			var endsWithF = new AdHocSpecification<string>(n => n.EndsWith("f"));
 			var spec = startWithJ & endsWithE;
 
-			spec.Should().Not.Be.EqualTo(startWithJ & endsWithF);
+            Assert.IsFalse(spec.Equals(startWithJ & endsWithF));
+            Assert.IsFalse(spec.Equals(endsWithE & startWithJ)); // AndAlso is not commutable
 		}
-
-		
 	}
 }

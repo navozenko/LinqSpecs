@@ -1,7 +1,6 @@
 using System.Linq;
 using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
-using SharpTestsEx;
 
 namespace LinqSpecs.Tests
 {
@@ -13,12 +12,11 @@ namespace LinqSpecs.Tests
 		{
 			var specification = new AdHocSpecification<string>(n => n.StartsWith("J"));
 
-			var result = new SampleRepository()
-								.Retrieve(specification);
+            var result = new SampleRepository().Retrieve(specification);
 
-			result.Satisfy(r => r.Contains("Jose")
-							  && r.Contains("Julian")
-							  && !r.Contains("Manuel"));
+            CollectionAssert.Contains(result, "Jose");
+            CollectionAssert.Contains(result, "Julian");
+            CollectionAssert.DoesNotContain(result, "Manuel");
 		}
 	}
 }
