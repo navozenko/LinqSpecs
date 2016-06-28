@@ -3,10 +3,13 @@ using System.Linq.Expressions;
 
 namespace LinqSpecs
 {
+    /// <summary>
+    /// Modifies a specification by using logical NOT operation.
+    /// </summary>
 	[Serializable]
 	class NegateSpecification<T> : Specification<T>
 	{
-		private readonly Specification<T> spec;
+		readonly Specification<T> spec;
 
 		public NegateSpecification(Specification<T> spec)
 		{
@@ -15,17 +18,26 @@ namespace LinqSpecs
 
 		public override Expression<Func<T, bool>> IsSatisfiedBy()
 		{
-			var isSatisfiedBy = spec.IsSatisfiedBy();
-			return Expression.Lambda<Func<T, bool>>(
-				Expression.Not(isSatisfiedBy.Body), isSatisfiedBy.Parameters);
+			var expr = spec.IsSatisfiedBy();
+			return Expression.Lambda<Func<T, bool>>(Expression.Not(expr.Body), expr.Parameters);
 		}
 
-		protected override object[] Parameters
-		{
-			get
-			{
-				return new[] {spec};
-			}
-		}
-	}
+        public override bool Equals(object other)
+        {
+            if (ReferenceEquals(null, other))
+                return false;
+            if (ReferenceEquals(this, other))
+                return true;
+            if (GetType() != other.GetType())
+                return false;
+
+            var otherSpec = other as NegateSpecification<T>;
+            return spec.Equals(otherSpec.spec);
+        }
+
+        public override int GetHashCode()
+        {
+            return spec.GetHashCode() ^ GetType().GetHashCode();
+        }
+    }
 }
