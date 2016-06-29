@@ -15,6 +15,11 @@ namespace LinqSpecs
 
         public OrSpecification(Specification<T> spec1, Specification<T> spec2)
         {
+            if (spec1 == null)
+                throw new ArgumentNullException("spec1");
+            if (spec2 == null)
+                throw new ArgumentNullException("spec2");
+
             this.spec1 = spec1;
             this.spec2 = spec2;
         }

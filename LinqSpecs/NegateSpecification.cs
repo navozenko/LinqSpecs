@@ -13,7 +13,9 @@ namespace LinqSpecs
 
 		public NegateSpecification(Specification<T> spec)
 		{
-			this.spec = spec;
+            if (spec == null)
+                throw new ArgumentNullException("spec");
+            this.spec = spec;
 		}
 
 		public override Expression<Func<T, bool>> IsSatisfiedBy()
