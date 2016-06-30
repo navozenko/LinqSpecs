@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
 
@@ -7,11 +7,19 @@ namespace LinqSpecs.Tests.BooleanOperators
 {
 	//Note; no matter if you are using & operator, or && operator.. both works as an &&.
 
-
 	[TestFixture]
 	public class AndSpecificationFixture
 	{
-		[Test]
+        [Test]
+        public void constructor_should_throw_exception_when_argument_is_null()
+        {
+            var spec = new AdHocSpecification<string>(x => x.Length == 1);
+
+            Assert.Throws<ArgumentNullException>(() => new AndSpecification<string>(spec, null));
+            Assert.Throws<ArgumentNullException>(() => new AndSpecification<string>(null, spec));
+        }
+
+        [Test]
 		public void and_should_work()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));

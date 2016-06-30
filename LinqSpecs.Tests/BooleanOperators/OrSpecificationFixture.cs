@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System;
 using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
 
@@ -7,7 +7,16 @@ namespace LinqSpecs.Tests.BooleanOperators
 	[TestFixture]
 	public class OrSpecificationFixture
 	{
-		[Test]
+        [Test]
+        public void constructor_should_throw_exception_when_argument_is_null()
+        {
+            var spec = new AdHocSpecification<string>(x => x.Length == 1);
+
+            Assert.Throws<ArgumentNullException>(() => new OrSpecification<string>(spec, null));
+            Assert.Throws<ArgumentNullException>(() => new OrSpecification<string>(null, spec));
+        }
+
+        [Test]
 		public void or_should_work()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));

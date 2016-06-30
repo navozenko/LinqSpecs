@@ -1,4 +1,5 @@
-﻿using LinqSpecs.Tests.DomainSample;
+﻿using System;
+using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests.BooleanOperators
@@ -6,7 +7,13 @@ namespace LinqSpecs.Tests.BooleanOperators
 	[TestFixture]
 	public class NegateSpecificationFixture
 	{
-		[Test]
+        [Test]
+        public void constructor_should_throw_exception_when_argument_is_null()
+        {
+            Assert.Throws<ArgumentNullException>(() => new NegateSpecification<string>(null));
+        }
+
+        [Test]
 		public void negate_should_work()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
