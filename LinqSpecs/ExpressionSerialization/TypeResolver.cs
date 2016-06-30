@@ -15,13 +15,13 @@ namespace LinqSpecs.ExpressionSerialization
     // Here is the URL to the original code: https://jmr.svn.codeplex.com/svn/trunk/Jmr.Silverlight/Serialization/ExpressionSerializationTypeResolver.cs
     //
 
-    public abstract class CustomExpressionXmlConverter
+    abstract class CustomExpressionXmlConverter
     {
         public abstract Expression Deserialize(XElement expressionXml);
         public abstract XElement Serialize(Expression expression);
     }
 
-    public class ExpressionSerializationTypeResolver
+    class ExpressionSerializationTypeResolver
     {
         private Dictionary<AnonTypeId, Type> anonymousTypes = new Dictionary<AnonTypeId, Type>();
         private ModuleBuilder moduleBuilder;
@@ -217,6 +217,5 @@ namespace LinqSpecs.ExpressionSerialization
             anonymousTypes.Add(id, anonType);
             return anonType;
         }
-
     }
 }

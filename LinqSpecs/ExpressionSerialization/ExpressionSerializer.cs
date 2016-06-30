@@ -20,12 +20,13 @@ namespace LinqSpecs.ExpressionSerialization
     // Here is the URL to the original code: https://jmr.svn.codeplex.com/svn/trunk/Jmr.Silverlight/Serialization/ExpressionSerializer.cs
     //
 
-    public class PropValue
+    class PropValue
 	{
 		public PropertyInfo Property { get; set; }
 		public object Value { get; set; }
 	}
-    public class ExpressionSerializer
+
+    class ExpressionSerializer
     {
         private static readonly Type[] attributeTypes = new[] { typeof(string), typeof(int), typeof(bool), typeof(ExpressionType) };
         private Dictionary<string, ParameterExpression> parameters = new Dictionary<string, ParameterExpression>();
@@ -43,8 +44,6 @@ namespace LinqSpecs.ExpressionSerialization
             this.resolver = new ExpressionSerializationTypeResolver();
             Converters = new List<CustomExpressionXmlConverter>();
         }
-
-
 
         /*
          * SERIALIZATION 

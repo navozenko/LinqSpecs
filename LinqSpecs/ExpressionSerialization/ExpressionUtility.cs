@@ -9,9 +9,8 @@ namespace LinqSpecs.ExpressionSerialization
     /// <summary>
     /// ExpressionUtility
     /// </summary>
-    public static class ExpressionUtility
+    static class ExpressionUtility
     {
-
         #region "privates"
 
         private static MemberBinding EnsureBinding(MemberBinding binding)
@@ -352,6 +351,4 @@ namespace LinqSpecs.ExpressionSerialization
             }
         }
     }
-
-
 }
