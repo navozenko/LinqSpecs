@@ -18,9 +18,9 @@ namespace LinqSpecs
             this.spec = spec;
 		}
 
-		public override Expression<Func<T, bool>> IsSatisfiedBy()
+		public override Expression<Func<T, bool>> ToExpression()
 		{
-			var expr = spec.IsSatisfiedBy();
+			var expr = spec.ToExpression();
 			return Expression.Lambda<Func<T, bool>>(Expression.Not(expr.Body), expr.Parameters);
 		}
 

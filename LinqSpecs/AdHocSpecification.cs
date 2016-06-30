@@ -21,7 +21,7 @@ namespace LinqSpecs
 		    serializedPredicate = serializedExpression.ToString();
 		}
 
-		public override Expression<Func<T, bool>> IsSatisfiedBy()
+		public override Expression<Func<T, bool>> ToExpression()
 		{
 		    var serializer = new ExpressionSerializer();
             var serializedExpression = XElement.Parse(serializedPredicate);

@@ -24,10 +24,10 @@ namespace LinqSpecs
 			this.spec2 = spec2;
 		}
 
-        public override Expression<Func<T, bool>> IsSatisfiedBy()
+        public override Expression<Func<T, bool>> ToExpression()
 		{
-			var expr1 = spec1.IsSatisfiedBy();
-			var expr2 = spec2.IsSatisfiedBy();
+			var expr1 = spec1.ToExpression();
+			var expr2 = spec2.ToExpression();
 		    return expr1.AndAlso(expr2);
 		}
 

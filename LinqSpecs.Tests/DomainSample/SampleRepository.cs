@@ -12,7 +12,7 @@ namespace LinqSpecs.Tests.DomainSample
 
 		public IEnumerable<string> Retrieve(Specification<string> specfication)
 		{
-			return this.AsQueryable().Where(specfication.IsSatisfiedBy());
+			return this.AsQueryable().Where(specfication.ToExpression());
 		}
 	}
 }

@@ -7,11 +7,11 @@ namespace LinqSpecs
 	[Serializable]
 	public abstract class Specification<T>
 	{
-		public abstract Expression<Func<T, bool>> IsSatisfiedBy();
+		public abstract Expression<Func<T, bool>> ToExpression();
 
         public static implicit operator Expression<Func<T, bool>>(Specification<T> spec)
         {
-            return spec.IsSatisfiedBy();
+            return spec.ToExpression();
         }
 
 		public static bool operator false(Specification<T> spec)

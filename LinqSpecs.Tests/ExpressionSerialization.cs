@@ -17,8 +17,8 @@ namespace LinqSpecs.Tests
             var serializedSpecification = Serialize(testSpecification);
             var deserializedSpecification = Deserialize<Specification<string>>(serializedSpecification);
 
-            Assert.That(deserializedSpecification.IsSatisfiedBy().Compile().Invoke("it works"), Is.True);
-            Assert.That(deserializedSpecification.IsSatisfiedBy().Compile().Invoke("it fails"), Is.False);
+            Assert.That(deserializedSpecification.ToExpression().Compile().Invoke("it works"), Is.True);
+            Assert.That(deserializedSpecification.ToExpression().Compile().Invoke("it fails"), Is.False);
         }
 
         [Test]
@@ -31,8 +31,8 @@ namespace LinqSpecs.Tests
             var serializedSpecification = Serialize(testSpecification);
             var deserializedSpecification = Deserialize<Specification<string>>(serializedSpecification);
 
-            Assert.That(deserializedSpecification.IsSatisfiedBy().Compile().Invoke("it works"), Is.True);
-            Assert.That(deserializedSpecification.IsSatisfiedBy().Compile().Invoke("it fails"), Is.False);
+            Assert.That(deserializedSpecification.ToExpression().Compile().Invoke("it works"), Is.True);
+            Assert.That(deserializedSpecification.ToExpression().Compile().Invoke("it fails"), Is.False);
         }
 
         [Test]
@@ -46,8 +46,8 @@ namespace LinqSpecs.Tests
             var serializedSpecification = Serialize(testSpecification);
             var deserializedSpecification = Deserialize<Specification<string>>(serializedSpecification);
 
-            Assert.That(deserializedSpecification.IsSatisfiedBy().Compile().Invoke("it works very well"), Is.True);
-            Assert.That(deserializedSpecification.IsSatisfiedBy().Compile().Invoke("it works very well if you do it right"), Is.False);
+            Assert.That(deserializedSpecification.ToExpression().Compile().Invoke("it works very well"), Is.True);
+            Assert.That(deserializedSpecification.ToExpression().Compile().Invoke("it works very well if you do it right"), Is.False);
         }
 
 
