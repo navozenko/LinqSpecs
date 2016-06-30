@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Runtime.Serialization;
 using System.Xml.Linq;
 using LinqSpecs.ExpressionSerialization;
 
@@ -8,25 +9,40 @@ namespace LinqSpecs
 	[Serializable]
 	public class AdHocSpecification<T> : Specification<T>
 	{
-	    readonly string serializedPredicate;
+        [NonSerialized]
+        Expression<Func<T, bool>> predicate;
 
-		public AdHocSpecification(Expression<Func<T, bool>> predicate)
-		{
+        // For serialization only
+        string serializedPredicate;
+
+        public AdHocSpecification(Expression<Func<T, bool>> predicate)
+        {
             if (predicate == null)
                 throw new ArgumentNullException("predicate");
 
-            var cleanedExpression = ExpressionUtility.Ensure(predicate);
-		    var serializer = new ExpressionSerializer();
-		    var serializedExpression = serializer.Serialize(cleanedExpression);
-		    serializedPredicate = serializedExpression.ToString();
-		}
+            this.predicate = predicate;
+        }
 
-		public override Expression<Func<T, bool>> ToExpression()
-		{
-		    var serializer = new ExpressionSerializer();
-            var serializedExpression = XElement.Parse(serializedPredicate);
-            var specification = serializer.Deserialize<Func<T, bool>>(serializedExpression);
-			return specification;
-		}
+        public override Expression<Func<T, bool>> ToExpression()
+        {
+            return predicate;
+        }
+
+        [OnSerializing]
+        void OnSerializing(StreamingContext context)
+        {
+            var cleanedExpression = ExpressionUtility.Ensure(predicate);
+            var serializer = new ExpressionSerializer();
+            var xmlElement = serializer.Serialize(cleanedExpression);
+            serializedPredicate = xmlElement.ToString();
+        }
+
+        [OnDeserialized]
+        void OnDeserialized(StreamingContext context)
+        {
+            var serializer = new ExpressionSerializer();
+            var xmlElement = XElement.Parse(serializedPredicate);
+            predicate = serializer.Deserialize<Func<T, bool>>(xmlElement);
+        }
 	}
 }
