@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TrueSpecificationFixture.cs" />
     <Compile Include="Helpers\Helpers.cs" />
     <Compile Include="SpecificationFixture.cs" />
     <Compile Include="BooleanOperators\AndSpecificationFixture.cs" />
