@@ -17,7 +17,7 @@ namespace LinqSpecs.Tests
 		{
 			var specification = new AdHocSpecification<string>(n => n.StartsWith("J"));
 
-            var result = new SampleRepository().Retrieve(specification);
+            var result = new SampleRepository().Find(specification);
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.Contains(result, "Julian");

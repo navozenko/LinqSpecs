@@ -18,7 +18,7 @@ namespace LinqSpecs.Tests
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			var specification = new NegateSpecification<string>(startWithJ);
 
-			var result = new SampleRepository().Retrieve(specification);
+			var result = new SampleRepository().Find(specification);
 
             CollectionAssert.DoesNotContain(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");

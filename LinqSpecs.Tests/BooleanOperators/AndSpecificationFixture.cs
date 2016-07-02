@@ -25,7 +25,7 @@ namespace LinqSpecs.Tests
 			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));          
 			var specfication = new AndSpecification<string>(startWithJ, endsWithE);
 
-			IEnumerable<string> result = new SampleRepository().Retrieve(specfication);
+			IEnumerable<string> result = new SampleRepository().Find(specfication);
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");

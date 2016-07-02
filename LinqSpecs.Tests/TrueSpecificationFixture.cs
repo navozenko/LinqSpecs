@@ -11,7 +11,7 @@ namespace LinqSpecs.Tests
 		{
 			var spec = new TrueSpecification<string>();
 
-            var result = new SampleRepository().Retrieve(spec);
+            var result = new SampleRepository().Find(spec);
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.Contains(result, "Julian");

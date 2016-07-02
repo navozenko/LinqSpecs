@@ -10,7 +10,7 @@ namespace LinqSpecs.Tests
 			: base(new[] { "Jose", "Manuel", "Julian" })
 		{ }
 
-		public IEnumerable<string> Retrieve(Specification<string> specfication)
+		public IEnumerable<string> Find(Specification<string> specfication)
 		{
 			return this.AsQueryable().Where(specfication.ToExpression());
 		}

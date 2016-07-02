@@ -23,7 +23,7 @@ namespace LinqSpecs.Tests
             var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
             var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));
 
-            var result = new SampleRepository().Retrieve(startWithJ & endsWithE);
+            var result = new SampleRepository().Find(startWithJ & endsWithE);
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");
@@ -36,7 +36,7 @@ namespace LinqSpecs.Tests
             var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
             var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
 
-            var result = new SampleRepository().Retrieve(startWithJ | endsWithN);
+            var result = new SampleRepository().Find(startWithJ | endsWithN);
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.Contains(result, "Julian");
@@ -48,7 +48,7 @@ namespace LinqSpecs.Tests
         {
             var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 
-            var result = new SampleRepository().Retrieve(!startWithJ);
+            var result = new SampleRepository().Find(!startWithJ);
 
             CollectionAssert.DoesNotContain(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");
@@ -80,7 +80,7 @@ namespace LinqSpecs.Tests
             var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
             var containsU = new AdHocSpecification<string>(n => n.Contains("u"));
 
-            var result = new SampleRepository().Retrieve(startWithM | (!endsWithN & !containsU));
+            var result = new SampleRepository().Find(startWithM | (!endsWithN & !containsU));
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");

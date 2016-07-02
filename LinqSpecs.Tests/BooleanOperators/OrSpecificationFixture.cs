@@ -22,7 +22,7 @@ namespace LinqSpecs.Tests
 			var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
 
 			var result = new SampleRepository()
-				.Retrieve(new OrSpecification<string>(startWithJ, endsWithN));
+				.Find(new OrSpecification<string>(startWithJ, endsWithN));
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.Contains(result, "Julian");
