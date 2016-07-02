@@ -72,6 +72,7 @@
     <Compile Include="ExpressionSerialization\ExpressionSerializer.cs" />
     <Compile Include="ExpressionSerialization\ExpressionUtility.cs" />
     <Compile Include="ExpressionSerialization\TypeResolver.cs" />
+    <Compile Include="FalseSpecification.cs" />
     <Compile Include="TrueSpecification.cs" />
     <Compile Include="OrSpecification.cs" />
     <Compile Include="Specification.cs" />
