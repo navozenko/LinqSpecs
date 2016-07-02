@@ -1,6 +1,5 @@
 using System;
 using System.Linq.Expressions;
-using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests

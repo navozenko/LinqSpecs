@@ -1,8 +1,7 @@
 ﻿using System;
-using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
 
-namespace LinqSpecs.Tests.BooleanOperators
+namespace LinqSpecs.Tests
 {
 	[TestFixture]
 	public class NegateSpecificationFixture
@@ -24,28 +23,6 @@ namespace LinqSpecs.Tests.BooleanOperators
             CollectionAssert.DoesNotContain(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");
             CollectionAssert.Contains(result, "Manuel");
-		}
-
-		[Test]
-		public void equals_return_true_when_the_negated_spec_are_equals()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-
-			var spec = !startWithJ;
-
-            Assert.IsTrue(spec.Equals(spec));
-            Assert.IsTrue(spec.Equals(!startWithJ));
-		}
-
-		[Test]
-		public void equals_return_false_when_the_negated_spec_are_not_equals()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			var anotherAdHocSpec = new AdHocSpecification<string>(n => n.StartsWith("dasdas"));
-
-			var spec = !startWithJ;
-
-            Assert.IsFalse(spec.Equals(!anotherAdHocSpec));
 		}
 
         [Test]
@@ -84,6 +61,19 @@ namespace LinqSpecs.Tests.BooleanOperators
             Assert.IsInstanceOf<NegateSpecification<string>>(spec1);
             Assert.IsInstanceOf<NegateSpecification<string>>(spec2);
             Assert.AreEqual(spec1.GetHashCode(), spec2.GetHashCode());
+        }
+
+        [Test]
+        public void should_be_serializable()
+        {
+            var sourceSpec = new AdHocSpecification<string>(n => n == "it fails");
+            var spec = new NegateSpecification<string>(sourceSpec);
+
+            var deserializedSpec = Helpers.SerializeAndDeserialize(spec);
+
+            Assert.That(deserializedSpec, Is.InstanceOf<NegateSpecification<string>>());
+            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it works"), Is.True);
+            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it fails"), Is.False);
         }
     }
 }

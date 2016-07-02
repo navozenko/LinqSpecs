@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using LinqSpecs.Tests.DomainSample;
 using NUnit.Framework;
 
-namespace LinqSpecs.Tests.BooleanOperators
+namespace LinqSpecs.Tests
 {
 	//Note; no matter if you are using & operator, or && operator.. both works as an &&.
 
@@ -76,6 +75,20 @@ namespace LinqSpecs.Tests.BooleanOperators
             Assert.IsInstanceOf<AndSpecification<string>>(spec1);
             Assert.IsInstanceOf<AndSpecification<string>>(spec2);
             Assert.AreEqual(spec1.GetHashCode(), spec2.GetHashCode());
+        }
+
+        [Test]
+        public void should_be_serializable()
+        {
+            var sourceSpec1 = new AdHocSpecification<string>(n => n.StartsWith("it"));
+            var sourceSpec2 = new AdHocSpecification<string>(n => n.EndsWith("works"));
+            var spec = new AndSpecification<string>(sourceSpec1, sourceSpec2);
+
+            var deserializedSpec = Helpers.SerializeAndDeserialize(spec);
+
+            Assert.That(deserializedSpec, Is.InstanceOf<AndSpecification<string>>());
+            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it works"), Is.True);
+            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it fails"), Is.False);
         }
     }
 }

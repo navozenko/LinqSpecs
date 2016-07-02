@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace LinqSpecs.Tests.DomainSample
+namespace LinqSpecs.Tests
 {
 	public class SampleRepository : ReadOnlyCollection<string>
 	{
