@@ -33,20 +33,6 @@ namespace LinqSpecs.Tests.BooleanOperators
             CollectionAssert.DoesNotContain(result, "Manuel");
 		}
 
-		[Test]
-		public void and_operator_should_work()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));
-
-			// & or && both operators behave as &&.
-			IEnumerable<string> result = new SampleRepository().Retrieve(startWithJ & endsWithE);
-
-            CollectionAssert.Contains(result, "Jose");
-            CollectionAssert.DoesNotContain(result, "Julian");
-            CollectionAssert.DoesNotContain(result, "Manuel");
-		}
-
         [Test]
         public void Equals_returns_true_when_both_sides_are_equals()
         {

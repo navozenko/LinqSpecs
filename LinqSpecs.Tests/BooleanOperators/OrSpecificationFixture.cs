@@ -30,19 +30,6 @@ namespace LinqSpecs.Tests.BooleanOperators
             CollectionAssert.DoesNotContain(result, "Manuel");
 		}
 
-		[Test]
-		public void or_operator_should_work()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
-
-			var result = new SampleRepository().Retrieve(startWithJ || endsWithN);
-
-            CollectionAssert.Contains(result, "Jose");
-            CollectionAssert.Contains(result, "Julian");
-            CollectionAssert.DoesNotContain(result, "Manuel");
-		}
-
         [Test]
         public void Equals_returns_true_when_both_sides_are_equals()
         {

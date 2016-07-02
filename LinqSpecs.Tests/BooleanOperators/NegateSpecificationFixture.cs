@@ -27,18 +27,6 @@ namespace LinqSpecs.Tests.BooleanOperators
 		}
 
 		[Test]
-		public void negate_operator_should_work()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			
-			var result = new SampleRepository().Retrieve(!startWithJ);
-
-            CollectionAssert.DoesNotContain(result, "Jose");
-            CollectionAssert.DoesNotContain(result, "Julian");
-            CollectionAssert.Contains(result, "Manuel");
-		}
-
-		[Test]
 		public void equals_return_true_when_the_negated_spec_are_equals()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));

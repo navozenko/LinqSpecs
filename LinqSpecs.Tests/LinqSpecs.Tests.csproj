@@ -78,7 +78,6 @@
     <Compile Include="ExpressionSerialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DomainSample\SampleRepository.cs" />
-    <Compile Include="OtherSamples.cs" />
     <Compile Include="AdHocSpecificationFixture.cs" />
   </ItemGroup>
   <ItemGroup>
