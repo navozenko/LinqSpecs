@@ -9,6 +9,12 @@ namespace LinqSpecs
 	{
 		public abstract Expression<Func<T, bool>> ToExpression();
 
+        [Obsolete("This method is obsolete. Use ToExpression() method instead.")]
+        public virtual Expression<Func<T, bool>> IsSatisfiedBy()
+        {
+            return ToExpression();
+        }
+
         public static implicit operator Expression<Func<T, bool>>(Specification<T> spec)
         {
             return spec.ToExpression();
