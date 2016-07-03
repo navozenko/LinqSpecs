@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdHocSpecification.cs" />
-    <Compile Include="AndSpecification.cs" />
+    <Compile Include="BooleanOperators\AndSpecification.cs" />
     <Compile Include="ExpressionCombining\ParameterRebinder.cs" />
     <Compile Include="ExpressionCombining\Utility.cs" />
     <Compile Include="ExpressionSerialization\ExpressionSerializer.cs" />
@@ -76,9 +76,9 @@
     <Compile Include="ExpressionSerialization\TypeResolver.cs" />
     <Compile Include="FalseSpecification.cs" />
     <Compile Include="TrueSpecification.cs" />
-    <Compile Include="OrSpecification.cs" />
+    <Compile Include="BooleanOperators\OrSpecification.cs" />
     <Compile Include="Specification.cs" />
-    <Compile Include="NegateSpecification.cs" />
+    <Compile Include="BooleanOperators\NegateSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
