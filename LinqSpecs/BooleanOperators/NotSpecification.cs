@@ -4,14 +4,14 @@ using System.Linq.Expressions;
 namespace LinqSpecs
 {
     /// <summary>
-    /// Modifies a specification by using logical NOT operation.
+    /// Negates a source specification.
     /// </summary>
-	[Serializable]
-	class NegateSpecification<T> : Specification<T>
+    [Serializable]
+	class NotSpecification<T> : Specification<T>
 	{
 		readonly Specification<T> spec;
 
-		public NegateSpecification(Specification<T> spec)
+		public NotSpecification(Specification<T> spec)
 		{
             if (spec == null)
                 throw new ArgumentNullException("spec");
@@ -33,7 +33,7 @@ namespace LinqSpecs
             if (GetType() != other.GetType())
                 return false;
 
-            var otherSpec = other as NegateSpecification<T>;
+            var otherSpec = other as NotSpecification<T>;
             return spec.Equals(otherSpec.spec);
         }
 

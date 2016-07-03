@@ -4,19 +4,19 @@ using NUnit.Framework;
 namespace LinqSpecs.Tests
 {
 	[TestFixture]
-	public class NegateSpecificationFixture
+	public class NotSpecificationFixture
 	{
         [Test]
         public void constructor_should_throw_exception_when_argument_is_null()
         {
-            Assert.Throws<ArgumentNullException>(() => new NegateSpecification<string>(null));
+            Assert.Throws<ArgumentNullException>(() => new NotSpecification<string>(null));
         }
 
         [Test]
 		public void negate_should_work()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			var specification = new NegateSpecification<string>(startWithJ);
+			var specification = new NotSpecification<string>(startWithJ);
 
 			var result = new SampleRepository().Find(specification);
 
@@ -31,7 +31,7 @@ namespace LinqSpecs.Tests
             var sourceSpec = new AdHocSpecification<string>(x => x.Length > 1);
             var spec = !sourceSpec;
 
-            Assert.IsInstanceOf<NegateSpecification<string>>(spec);
+            Assert.IsInstanceOf<NotSpecification<string>>(spec);
             Assert.IsTrue(spec.Equals(spec));
             Assert.IsTrue(spec.Equals(!sourceSpec));
         }
@@ -43,7 +43,7 @@ namespace LinqSpecs.Tests
             var sourceSpec2 = new AdHocSpecification<string>(x => x.Length > 2);
             var spec = !sourceSpec1;
 
-            Assert.IsInstanceOf<NegateSpecification<string>>(spec);
+            Assert.IsInstanceOf<NotSpecification<string>>(spec);
             Assert.IsFalse(spec.Equals(null));
             Assert.IsFalse(spec.Equals(10));
             Assert.IsFalse(spec.Equals(sourceSpec1));
@@ -58,8 +58,8 @@ namespace LinqSpecs.Tests
             var spec1 = !sourceSpec;
             var spec2 = !sourceSpec;
 
-            Assert.IsInstanceOf<NegateSpecification<string>>(spec1);
-            Assert.IsInstanceOf<NegateSpecification<string>>(spec2);
+            Assert.IsInstanceOf<NotSpecification<string>>(spec1);
+            Assert.IsInstanceOf<NotSpecification<string>>(spec2);
             Assert.AreEqual(spec1.GetHashCode(), spec2.GetHashCode());
         }
 
@@ -67,11 +67,11 @@ namespace LinqSpecs.Tests
         public void should_be_serializable()
         {
             var sourceSpec = new AdHocSpecification<string>(n => n == "it fails");
-            var spec = new NegateSpecification<string>(sourceSpec);
+            var spec = new NotSpecification<string>(sourceSpec);
 
             var deserializedSpec = Helpers.SerializeAndDeserialize(spec);
 
-            Assert.That(deserializedSpec, Is.InstanceOf<NegateSpecification<string>>());
+            Assert.That(deserializedSpec, Is.InstanceOf<NotSpecification<string>>());
             Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it works"), Is.True);
             Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it fails"), Is.False);
         }

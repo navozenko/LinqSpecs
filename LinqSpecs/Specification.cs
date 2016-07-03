@@ -76,7 +76,7 @@ namespace LinqSpecs
         /// </summary>
         public static Specification<T> operator !(Specification<T> spec)
 		{
-			return new NegateSpecification<T>(spec);
+			return new NotSpecification<T>(spec);
 		}
 	}
 }
