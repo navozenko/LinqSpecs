@@ -6,7 +6,10 @@ using LinqSpecs.ExpressionSerialization;
 
 namespace LinqSpecs
 {
-	[Serializable]
+    /// <summary>
+    /// Allows to write a <see cref="Specification{T}"/> without writing a class.
+    /// </summary>
+    [Serializable]
 	public class AdHocSpecification<T> : Specification<T>
 	{
         [NonSerialized]
@@ -15,6 +18,9 @@ namespace LinqSpecs
         // For serialization only
         string serializedPredicate;
 
+        /// <summary>
+        /// Creates a custom ad-hoc <see cref="Specification{T}"/> from the given predicate expression.
+        /// </summary>
         public AdHocSpecification(Expression<Func<T, bool>> predicate)
         {
             if (predicate == null)
@@ -23,6 +29,9 @@ namespace LinqSpecs
             this.predicate = predicate;
         }
 
+        /// <summary>
+        /// Returns an expression that defines this query.
+        /// </summary>
         public override Expression<Func<T, bool>> ToExpression()
         {
             return predicate;
