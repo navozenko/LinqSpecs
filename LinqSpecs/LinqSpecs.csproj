@@ -78,7 +78,7 @@
     <Compile Include="TrueSpecification.cs" />
     <Compile Include="BooleanOperators\OrSpecification.cs" />
     <Compile Include="Specification.cs" />
-    <Compile Include="BooleanOperators\NegateSpecification.cs" />
+    <Compile Include="BooleanOperators\NotSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
