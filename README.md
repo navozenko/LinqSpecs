@@ -26,7 +26,7 @@ So this is our implementation:
             Country = country;
         }
 
-        public override Expression<Func<Country, bool>> ToExpression()
+        public override Expression<Func<Customer, bool>> ToExpression()
         { 
             return c => c.Country == Country;
         }
