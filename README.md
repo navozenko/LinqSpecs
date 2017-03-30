@@ -128,7 +128,7 @@ Although the LinqSpecs is targeted towards IQueryable\<T\> data source, it is po
 
     IEnumerable<Customer> customers = ...
     var spec = new CustomerFromCountrySpec(Country.Argentina);
-    var result = customerRepository.Where(spec.ToExpression().Compile());
+    var result = customers.Where(spec.ToExpression().Compile());
 
 Compiling of expression tree into a delegate is a very slow operation, so it's a good idea to cache the result of a compilation for reuse if it's possible.
 
