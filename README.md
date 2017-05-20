@@ -62,7 +62,7 @@ var customersFromArgentina = customerRepository.Find(spec);
 An alternative way of exposing specifications is with a static class:
 
 ```csharp
-public static CustomerSpecs
+public static class CustomerSpecs
 {
     public static Specification<Customer> FromCountry(Country country) 
     { 
