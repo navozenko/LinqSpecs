@@ -4,10 +4,10 @@ using NUnit.Framework;
 namespace LinqSpecs.Tests
 {
 	[TestFixture]
-	public class FalseSpecificationFixture
+	public class FalseSpecificationTests
 	{
         [Test]
-		public void should_work()
+		public void Should_work()
 		{
 			var spec = new FalseSpecification<string>();
 
@@ -46,7 +46,7 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-        public void should_be_serializable()
+        public void Should_be_serializable()
         {
             var spec = new FalseSpecification<string>();
 

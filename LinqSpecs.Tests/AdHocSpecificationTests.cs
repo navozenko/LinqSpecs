@@ -4,16 +4,16 @@ using NUnit.Framework;
 namespace LinqSpecs.Tests
 {
 	[TestFixture]
-	public class AdHocSpecificationFixture
+	public class AdHocSpecificationTests
 	{
         [Test]
-        public void constructor_should_throw_exception_when_argument_is_null()
+        public void Constructor_should_throw_exception_when_argument_is_null()
         {
             Assert.Throws<ArgumentNullException>(() => new AdHocSpecification<string>(null));
         }
 
         [Test]
-		public void simple_adhoc_should_work()
+		public void Simple_adhoc_should_work()
 		{
 			var specification = new AdHocSpecification<string>(n => n.StartsWith("J"));
 
@@ -25,7 +25,7 @@ namespace LinqSpecs.Tests
 		}
 
         [Test]
-        public void should_be_serializable()
+        public void Should_be_serializable()
         {
             var spec = new AdHocSpecification<string>(n => n == "it works");
 

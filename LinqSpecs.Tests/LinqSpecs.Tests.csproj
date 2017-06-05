@@ -70,16 +70,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FalseSpecificationFixture.cs" />
-    <Compile Include="TrueSpecificationFixture.cs" />
+    <Compile Include="FalseSpecificationTests.cs" />
+    <Compile Include="TrueSpecificationTests.cs" />
     <Compile Include="Helpers\Helpers.cs" />
-    <Compile Include="SpecificationFixture.cs" />
-    <Compile Include="BooleanOperators\AndSpecificationFixture.cs" />
-    <Compile Include="BooleanOperators\NotSpecificationFixture.cs" />
-    <Compile Include="BooleanOperators\OrSpecificationFixture.cs" />
+    <Compile Include="SpecificationTests.cs" />
+    <Compile Include="BooleanOperators\AndSpecificationTests.cs" />
+    <Compile Include="BooleanOperators\NotSpecificationTests.cs" />
+    <Compile Include="BooleanOperators\OrSpecificationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\SampleRepository.cs" />
-    <Compile Include="AdHocSpecificationFixture.cs" />
+    <Compile Include="AdHocSpecificationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LinqSpecs\LinqSpecs.csproj">

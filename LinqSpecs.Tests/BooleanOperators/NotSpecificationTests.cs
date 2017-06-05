@@ -4,16 +4,16 @@ using NUnit.Framework;
 namespace LinqSpecs.Tests
 {
 	[TestFixture]
-	public class NotSpecificationFixture
+	public class NotSpecificationTests
 	{
         [Test]
-        public void constructor_should_throw_exception_when_argument_is_null()
+        public void Constructor_should_throw_exception_when_argument_is_null()
         {
             Assert.Throws<ArgumentNullException>(() => new NotSpecification<string>(null));
         }
 
         [Test]
-		public void negate_should_work()
+		public void Negate_should_work()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			var specification = new NotSpecification<string>(startWithJ);
@@ -64,7 +64,7 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-        public void should_be_serializable()
+        public void Should_be_serializable()
         {
             var sourceSpec = new AdHocSpecification<string>(n => n == "it fails");
             var spec = new NotSpecification<string>(sourceSpec);

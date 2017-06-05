@@ -7,10 +7,10 @@ namespace LinqSpecs.Tests
 	//Note; no matter if you are using & operator, or && operator.. both works as an &&.
 
 	[TestFixture]
-	public class AndSpecificationFixture
+	public class AndSpecificationTests
 	{
         [Test]
-        public void constructor_should_throw_exception_when_argument_is_null()
+        public void Constructor_should_throw_exception_when_argument_is_null()
         {
             var spec = new AdHocSpecification<string>(x => x.Length == 1);
 
@@ -19,7 +19,7 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-		public void and_should_work()
+		public void And_should_work()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));          
@@ -78,7 +78,7 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-        public void should_be_serializable()
+        public void Should_be_serializable()
         {
             var sourceSpec1 = new AdHocSpecification<string>(n => n.StartsWith("it"));
             var sourceSpec2 = new AdHocSpecification<string>(n => n.EndsWith("works"));

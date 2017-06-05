@@ -4,10 +4,10 @@ using NUnit.Framework;
 namespace LinqSpecs.Tests
 {
 	[TestFixture]
-	public class OrSpecificationFixture
+	public class OrSpecificationTests
 	{
         [Test]
-        public void constructor_should_throw_exception_when_argument_is_null()
+        public void Constructor_should_throw_exception_when_argument_is_null()
         {
             var spec = new AdHocSpecification<string>(x => x.Length == 1);
 
@@ -16,7 +16,7 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-		public void or_should_work()
+		public void Or_should_work()
 		{
 			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
 			var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
@@ -75,7 +75,7 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-        public void should_be_serializable()
+        public void Should_be_serializable()
         {
             var sourceSpec1 = new AdHocSpecification<string>(n => n.StartsWith("it"));
             var sourceSpec2 = new AdHocSpecification<string>(n => n.EndsWith("works"));

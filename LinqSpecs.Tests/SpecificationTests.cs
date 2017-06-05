@@ -5,10 +5,10 @@ using NUnit.Framework;
 namespace LinqSpecs.Tests
 {
 	[TestFixture]
-	public class SpecificationFixture
+	public class SpecificationTests
 	{
         [Test]
-        public void can_implicitly_convert_specification_to_expression()
+        public void Can_implicitly_convert_specification_to_expression()
         {
             Specification<string> spec = new AdHocSpecification<string>(s => s.Length == 2);
             Expression<Func<string, bool>> expr = spec;
