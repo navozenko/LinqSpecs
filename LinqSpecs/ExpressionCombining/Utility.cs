@@ -9,7 +9,7 @@ namespace LinqSpecs.ExpressionCombining
     // http://blogs.msdn.com/b/meek/archive/2008/05/02/linq-to-entities-combining-predicates.aspx
     // ------------------------------------------------------------------------------------------
 
-    static class Utility
+    internal static class Utility
     {
         public static Expression<Func<T, bool>> AndAlso<T>(
             this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
@@ -23,7 +23,7 @@ namespace LinqSpecs.ExpressionCombining
             return first.Compose(second, Expression.OrElse);
         }
 
-        static Expression<T> Compose<T>(
+        private static Expression<T> Compose<T>(
             this Expression<T> first, Expression<T> second, Func<Expression, Expression, Expression> merge)
         {
             // build parameter map (from parameters of second to parameters of first)

@@ -8,26 +8,21 @@ namespace LinqSpecs
     /// Combines two specifications by using logical OR operation.
     /// </summary>
     [Serializable]
-    class OrSpecification<T> : Specification<T>
+    internal class OrSpecification<T> : Specification<T>
     {
-        readonly Specification<T> spec1;
-        readonly Specification<T> spec2;
+        private readonly Specification<T> _spec1;
+        private readonly Specification<T> _spec2;
 
         public OrSpecification(Specification<T> spec1, Specification<T> spec2)
         {
-            if (spec1 == null)
-                throw new ArgumentNullException("spec1");
-            if (spec2 == null)
-                throw new ArgumentNullException("spec2");
-
-            this.spec1 = spec1;
-            this.spec2 = spec2;
+            _spec1 = spec1 ?? throw new ArgumentNullException(nameof(spec1));
+            _spec2 = spec2 ?? throw new ArgumentNullException(nameof(spec2));
         }
 
         public override Expression<Func<T, bool>> ToExpression()
         {
-            var expr1 = spec1.ToExpression();
-            var expr2 = spec2.ToExpression();
+            var expr1 = _spec1.ToExpression();
+            var expr2 = _spec2.ToExpression();
             return expr1.OrElse(expr2);
         }
 
@@ -41,12 +36,12 @@ namespace LinqSpecs
                 return false;
 
             var otherSpec = other as OrSpecification<T>;
-            return spec1.Equals(otherSpec.spec1) && spec2.Equals(otherSpec.spec2);
+            return _spec1.Equals(otherSpec._spec1) && _spec2.Equals(otherSpec._spec2);
         }
 
         public override int GetHashCode()
         {
-            return spec1.GetHashCode() ^ spec2.GetHashCode() ^ GetType().GetHashCode();
+            return _spec1.GetHashCode() ^ _spec2.GetHashCode() ^ GetType().GetHashCode();
         }
     }
 }

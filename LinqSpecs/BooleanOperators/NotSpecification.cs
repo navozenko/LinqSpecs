@@ -7,20 +7,18 @@ namespace LinqSpecs
     /// Negates a source specification.
     /// </summary>
     [Serializable]
-	class NotSpecification<T> : Specification<T>
+	internal class NotSpecification<T> : Specification<T>
 	{
-		readonly Specification<T> spec;
+		private readonly Specification<T> _spec;
 
 		public NotSpecification(Specification<T> spec)
 		{
-            if (spec == null)
-                throw new ArgumentNullException("spec");
-            this.spec = spec;
+            _spec = spec ?? throw new ArgumentNullException(nameof(spec));
 		}
 
 		public override Expression<Func<T, bool>> ToExpression()
 		{
-			var expr = spec.ToExpression();
+			var expr = _spec.ToExpression();
 			return Expression.Lambda<Func<T, bool>>(Expression.Not(expr.Body), expr.Parameters);
 		}
 
@@ -34,12 +32,12 @@ namespace LinqSpecs
                 return false;
 
             var otherSpec = other as NotSpecification<T>;
-            return spec.Equals(otherSpec.spec);
+            return _spec.Equals(otherSpec._spec);
         }
 
         public override int GetHashCode()
         {
-            return spec.GetHashCode() ^ GetType().GetHashCode();
+            return _spec.GetHashCode() ^ GetType().GetHashCode();
         }
     }
 }
