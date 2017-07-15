@@ -8,6 +8,15 @@ namespace LinqSpecs.Tests
 	public class SpecificationTests
 	{
         [Test]
+        public void ToString_should_return_expression_string()
+        {
+            Expression<Func<string, bool>> expr = s => s.Length == 2;
+            Specification<string> spec = new AdHocSpecification<string>(expr);
+
+            Assert.AreEqual(expr.ToString(), spec.ToString());
+        }
+
+        [Test]
         public void Can_implicitly_convert_specification_to_expression()
         {
             Specification<string> spec = new AdHocSpecification<string>(s => s.Length == 2);
