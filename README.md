@@ -146,7 +146,7 @@ return spec;
 
 ### In-memory queries
 
-Although the LinqSpecs is targeted towards IQueryable\<T\> data source, it is possible to use LinqSpecs specifications for filtering IEnumerable\<T\> collections and also for other checks in memory:
+Although LinqSpecs is targeted towards IQueryable\<T\> data source, it is possible to use LinqSpecs specifications for filtering IEnumerable\<T\> collections and also for other checks in memory:
 
 ```csharp
 IEnumerable<Customer> customers = ...
@@ -158,7 +158,7 @@ Compiling of expression tree into a delegate is a very slow operation, so it's a
 
 # License
 
-The LinqSpecs is open-sourced software licensed under the [Microsoft Public License (MS-PL)](https://opensource.org/licenses/MS-PL).
+LinqSpecs is open-sourced software licensed under the [Microsoft Public License (MS-PL)](https://opensource.org/licenses/MS-PL).
 
 # Contributors
 
