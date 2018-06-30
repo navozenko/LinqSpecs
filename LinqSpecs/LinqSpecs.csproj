@@ -71,10 +71,10 @@
     <Compile Include="BooleanOperators\AndSpecification.cs" />
     <Compile Include="ExpressionCombining\ParameterRebinder.cs" />
     <Compile Include="ExpressionCombining\Utility.cs" />
-    <Compile Include="ExpressionSerialization\ExpressionSerializer.cs" />
-    <Compile Include="ExpressionSerialization\ExpressionUtility.cs" />
-    <Compile Include="ExpressionSerialization\TypeResolver.cs" />
+    <Compile Include="ExpressionSerialization\IExpressionSerializer.cs" />
+    <Compile Include="ExpressionSerialization\IExpressionSerializerFactory.cs" />
     <Compile Include="FalseSpecification.cs" />
+    <Compile Include="ExpressionSerialization\SerializationSettings.cs" />
     <Compile Include="TrueSpecification.cs" />
     <Compile Include="BooleanOperators\OrSpecification.cs" />
     <Compile Include="Specification.cs" />
