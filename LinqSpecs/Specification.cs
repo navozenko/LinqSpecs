@@ -24,15 +24,6 @@ namespace LinqSpecs
         public abstract Expression<Func<T, bool>> ToExpression();
 
         /// <summary>
-        /// This method is obsolete. Use <see cref="ToExpression"/> method instead.
-        /// </summary>
-        [Obsolete("This method is obsolete. Use ToExpression method instead.")]
-        public virtual Expression<Func<T, bool>> IsSatisfiedBy()
-        {
-            return ToExpression();
-        }
-
-        /// <summary>
         /// Returns a string that represents the current specification.
         /// </summary>
         public override string ToString()
