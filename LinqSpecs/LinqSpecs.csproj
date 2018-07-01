@@ -13,7 +13,7 @@
     <PackageTags>linq specification spec expression ddd</PackageTags>
     <Description>LinqSpecs is a framework that will help you to create specifications for LINQ queries.
 
-Supported platform:
+Supported platforms:
 - .NET Standard 2.0+
 - .NET Framework 4.0+
 - .NET Core 2.0+</Description>
