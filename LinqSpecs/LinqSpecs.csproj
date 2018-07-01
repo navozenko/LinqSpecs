@@ -16,7 +16,7 @@
 Supported platform:
 - .NET Standard 2.0+
 - .NET Framework 4.0+
-- .NET Core</Description>
+- .NET Core 2.0</Description>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -24,7 +24,7 @@ Supported platform:
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\licence.txt" PackagePath="licence.txt" />
+    <Content Include="..\license.txt" PackagePath="license.txt" />
   </ItemGroup>
 
 </Project>
