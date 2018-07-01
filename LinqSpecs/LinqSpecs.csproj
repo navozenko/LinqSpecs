@@ -16,7 +16,7 @@
 Supported platform:
 - .NET Standard 2.0+
 - .NET Framework 4.0+
-- .NET Core 2.0</Description>
+- .NET Core 2.0+</Description>
   </PropertyGroup>
 
   <PropertyGroup>
