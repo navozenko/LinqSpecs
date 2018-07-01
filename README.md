@@ -156,6 +156,12 @@ var result = customers.Where(spec.ToExpression().Compile());
 
 Compiling of expression tree into a delegate is a very slow operation, so it's a good idea to cache the result of a compilation for reuse if it's possible.
 
+# Supported platforms
+
+- .NET Standard 2.0+
+- .NET Framework 4.0+
+- .NET Core 2.0+
+
 # License
 
 LinqSpecs is open-sourced software licensed under the [Microsoft Public License (MS-PL)](https://opensource.org/licenses/MS-PL).
