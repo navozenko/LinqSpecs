@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("LinqSpecs.Tests")]
 
 namespace LinqSpecs
 {
