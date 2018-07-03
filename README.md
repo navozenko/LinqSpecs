@@ -22,7 +22,7 @@ using LinqSpecs;
 
 public class CustomerFromCountrySpec : Specification<Customer>
 {
-    public Country { get; set; }
+    public Country Country { get; set; }
 
     public CustomerFromCountrySpec(Country country)
     {
