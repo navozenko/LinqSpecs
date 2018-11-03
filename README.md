@@ -1,8 +1,8 @@
 ![](https://github.com/navozenko/LinqSpecs/blob/master/logo.png)
 
-LinqSpec is a framework that will help you to create specifications for LINQ queries that can be executed by a remote server. You can read more about the specification pattern in [Wikipedia](http://en.wikipedia.org/wiki/Specification_pattern).
+LinqSpecs is a framework that will help you to create specifications for LINQ queries that can be executed by a remote server. You can read more about the specification pattern in [Wikipedia](http://en.wikipedia.org/wiki/Specification_pattern).
 
-Almost all users of LINQ create specifications in their daily work, but most of them write those specifications scattered all over the code. The idea behind this project is to help the user to write, test and expose specifications as first-class objects. You will learn how to use LinqSpec in this brief document.
+Almost all users of LINQ create specifications in their daily work, but most of them write those specifications scattered all over the code. The idea behind this project is to help the user to write, test and expose specifications as first-class objects. You will learn how to use LinqSpecs in this brief document.
 
 ### Defining simple specifications
 
