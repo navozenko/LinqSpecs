@@ -1,6 +1,6 @@
 ![](https://github.com/navozenko/LinqSpecs/blob/master/logo.png)
 
-LinqSpec is a framework that will help you to create specifications for LINQ queries. You can read more about the specification pattern [here](http://en.wikipedia.org/wiki/Specification_pattern).
+LinqSpec is a framework that will help you to create specifications for LINQ queries that can be executed by a remote server. You can read more about the specification pattern in [Wikipedia](http://en.wikipedia.org/wiki/Specification_pattern).
 
 Almost all users of LINQ create specifications in their daily work, but most of them write those specifications scattered all over the code. The idea behind this project is to help the user to write, test and expose specifications as first-class objects. You will learn how to use LinqSpec in this brief document.
 
@@ -19,6 +19,8 @@ So this is our implementation:
 
 ```csharp
 using LinqSpecs;
+
+public enum Country { Argentina, France, Italia, ... }
 
 public class CustomerFromCountrySpec : Specification<Customer>
 {
@@ -53,7 +55,7 @@ public int Count(Specification<T> specification)
 The usage is very simple:
 
 ```csharp
-var spec = new CustomerFromCountrySpec(Countries.Argentina);
+var spec = new CustomerFromCountrySpec(Country.Argentina);
 var customersFromArgentina = customerRepository.Find(spec);
 ```
 
@@ -91,7 +93,7 @@ customerRepository.Find(
 One of the most interesting features of LinqSpecs is that you can combine known specifications with "!", "&&" and "||" operators. For example:
 
 ```csharp
-var spec1 = new CustomerFromCountrySpec(Countries.Argentina);
+var spec1 = new CustomerFromCountrySpec(Country.Argentina);
 var spec2 = new CustomerPreferredSpec();
 var result = customerRepository.Find(spec1 && !spec2);
 ```
