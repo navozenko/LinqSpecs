@@ -24,14 +24,6 @@ namespace LinqSpecs
         public abstract Expression<Func<T, bool>> ToExpression();
 
         /// <summary>
-        /// Returns a string that represents the current specification.
-        /// </summary>
-        public override string ToString()
-        {
-            return ToExpression()?.ToString() ?? string.Empty;
-        }
-
-        /// <summary>
         /// Performs an implicit conversion from <see cref="Specification{T}"/>
         /// to a LINQ expression.
         /// </summary>
