@@ -5,22 +5,19 @@
     <Version>3.0.1</Version>
     <Authors>José F. Romaniello, Sergey Navozenko</Authors>
     <Company></Company>
-    <Copyright>Copyright © 2010-2018</Copyright>
+    <Copyright>Copyright © 2010-2019</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseUrl>https://opensource.org/licenses/ms-pl.html</PackageLicenseUrl>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/navozenko/LinqSpecs</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/navozenko/LinqSpecs</RepositoryUrl>
     <PackageTags>linq specification spec ddd</PackageTags>
+    <RepositoryUrl>https://github.com/navozenko/LinqSpecs</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Description>LinqSpecs is a framework that will help you to create specifications for LINQ queries.
 
 Supported platforms:
 - .NET Standard 2.0+
 - .NET Framework 4.0+
 - .NET Core 2.0+</Description>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
