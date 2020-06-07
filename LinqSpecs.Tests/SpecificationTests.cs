@@ -8,13 +8,22 @@ namespace LinqSpecs.Tests
     public class SpecificationTests
     {
         [Test]
-        public void Can_implicitly_convert_specification_to_expression()
+        public void Implicit_operator_should_convert_specification_to_expression()
         {
             Specification<string> spec = new AdHocSpecification<string>(s => s.Length == 2);
             Expression<Func<string, bool>> expr = spec;
 
             Assert.IsTrue(expr.Compile().Invoke("ab"));
             Assert.IsFalse(expr.Compile().Invoke("abcd"));
+        }
+
+        [Test]
+        public void Implicit_operator_should_throw_exception_when_argument_is_null()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                Expression<Func<string, bool>> expr = Helpers.NullSpecification;
+            });
         }
 
         [Test]

@@ -29,7 +29,7 @@ namespace LinqSpecs
         /// </summary>
         public static implicit operator Expression<Func<T, bool>>(Specification<T> spec)
         {
-            return spec.ToExpression();
+            return spec?.ToExpression() ?? throw new ArgumentNullException(nameof(spec));
         }
 
         /// <summary>

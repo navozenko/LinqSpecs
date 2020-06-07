@@ -12,7 +12,7 @@ namespace LinqSpecs.Tests
         [Test]
         public void Constructor_should_throw_exception_when_argument_is_null()
         {
-            Assert.Throws<ArgumentNullException>(() => new AdHocSpecification<string>(null));
+            Assert.Throws<ArgumentNullException>(() => new AdHocSpecification<string>(Helpers.NullExpression));
         }
 
         [Test]

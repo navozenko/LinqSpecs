@@ -30,10 +30,10 @@ namespace LinqSpecs.Tests
         {
             var spec = new FalseSpecification<string>();
 
-            Assert.IsFalse(spec.Equals(null));
             Assert.IsFalse(spec.Equals(10));
             Assert.IsFalse(spec.Equals(new AdHocSpecification<string>(x => true)));
             Assert.IsFalse(spec.Equals(new FalseSpecification<object>()));
+            Assert.IsFalse(spec.Equals(Helpers.NullSpecification));
         }
 
         [Test]
