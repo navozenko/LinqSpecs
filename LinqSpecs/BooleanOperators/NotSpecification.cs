@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq.Expressions;
 
 namespace LinqSpecs
@@ -7,20 +7,20 @@ namespace LinqSpecs
     /// Negates a source specification.
     /// </summary>
     [Serializable]
-	internal class NotSpecification<T> : Specification<T>
-	{
-		private readonly Specification<T> _spec;
+    internal class NotSpecification<T> : Specification<T>
+    {
+        private readonly Specification<T> _spec;
 
-		public NotSpecification(Specification<T> spec)
-		{
+        public NotSpecification(Specification<T> spec)
+        {
             _spec = spec ?? throw new ArgumentNullException(nameof(spec));
-		}
+        }
 
-		public override Expression<Func<T, bool>> ToExpression()
-		{
-			var expr = _spec.ToExpression();
-			return Expression.Lambda<Func<T, bool>>(Expression.Not(expr.Body), expr.Parameters);
-		}
+        public override Expression<Func<T, bool>> ToExpression()
+        {
+            var expr = _spec.ToExpression();
+            return Expression.Lambda<Func<T, bool>>(Expression.Not(expr.Body), expr.Parameters);
+        }
 
         public override bool Equals(object other)
         {

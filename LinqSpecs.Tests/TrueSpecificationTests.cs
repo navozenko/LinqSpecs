@@ -1,22 +1,22 @@
-using System;
+﻿using System;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests
 {
-	[TestFixture]
-	public class TrueSpecificationTests
-	{
+    [TestFixture]
+    public class TrueSpecificationTests
+    {
         [Test]
-		public void Should_work()
-		{
-			var spec = new TrueSpecification<string>();
+        public void Should_work()
+        {
+            var spec = new TrueSpecification<string>();
 
             var result = new SampleRepository().Find(spec);
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.Contains(result, "Julian");
             CollectionAssert.Contains(result, "Manuel");
-		}
+        }
 
         [Test]
         public void Equals_returns_true_when_both_sides_are_equals()

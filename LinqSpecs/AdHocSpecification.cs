@@ -8,8 +8,8 @@ namespace LinqSpecs
     /// Allows to write a <see cref="Specification{T}"/> without writing a class.
     /// </summary>
     [Serializable]
-	public class AdHocSpecification<T> : Specification<T>
-	{
+    public class AdHocSpecification<T> : Specification<T>
+    {
         [NonSerialized]
         private Expression<Func<T, bool>> _predicate;
 
@@ -58,5 +58,5 @@ namespace LinqSpecs
 
             return serializerFactory.CreateSerializer();
         }
-	}
+    }
 }

@@ -3,9 +3,9 @@ using NUnit.Framework;
 
 namespace LinqSpecs.Tests
 {
-	[TestFixture]
-	public class NotSpecificationTests
-	{
+    [TestFixture]
+    public class NotSpecificationTests
+    {
         [Test]
         public void Constructor_should_throw_exception_when_argument_is_null()
         {
@@ -13,17 +13,17 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-		public void Negate_should_work()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			var specification = new NotSpecification<string>(startWithJ);
+        public void Negate_should_work()
+        {
+            var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
+            var specification = new NotSpecification<string>(startWithJ);
 
-			var result = new SampleRepository().Find(specification);
+            var result = new SampleRepository().Find(specification);
 
             CollectionAssert.DoesNotContain(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");
             CollectionAssert.Contains(result, "Manuel");
-		}
+        }
 
         [Test]
         public void Equals_return_true_when_the_negated_spec_are_equals()

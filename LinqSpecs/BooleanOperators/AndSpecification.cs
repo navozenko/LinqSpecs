@@ -8,23 +8,23 @@ namespace LinqSpecs
     /// Combines two specifications by using logical AND operation.
     /// </summary>
 	[Serializable]
-	internal class AndSpecification<T> : Specification<T>
-	{
+    internal class AndSpecification<T> : Specification<T>
+    {
         private readonly Specification<T> _spec1;
-		private readonly Specification<T> _spec2;
+        private readonly Specification<T> _spec2;
 
-		public AndSpecification(Specification<T> spec1, Specification<T> spec2)
-		{
+        public AndSpecification(Specification<T> spec1, Specification<T> spec2)
+        {
             _spec1 = spec1 ?? throw new ArgumentNullException(nameof(spec1));
-			_spec2 = spec2 ?? throw new ArgumentNullException(nameof(spec2));
-		}
+            _spec2 = spec2 ?? throw new ArgumentNullException(nameof(spec2));
+        }
 
         public override Expression<Func<T, bool>> ToExpression()
-		{
-			var expr1 = _spec1.ToExpression();
-			var expr2 = _spec2.ToExpression();
-		    return expr1.AndAlso(expr2);
-		}
+        {
+            var expr1 = _spec1.ToExpression();
+            var expr2 = _spec2.ToExpression();
+            return expr1.AndAlso(expr2);
+        }
 
         public override bool Equals(object other)
         {

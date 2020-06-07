@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq.Expressions;
 
 namespace LinqSpecs
@@ -7,15 +7,15 @@ namespace LinqSpecs
     /// Specification which is not satisfied by any object.
     /// </summary>
 	[Serializable]
-	public class FalseSpecification<T> : Specification<T>
-	{
+    public class FalseSpecification<T> : Specification<T>
+    {
         /// <summary>
         /// Returns an expression that defines this query.
         /// </summary>
 		public override Expression<Func<T, bool>> ToExpression()
-		{
-			return x => false;
-		}
+        {
+            return x => false;
+        }
 
         /// <summary>
         /// Determines whether the specified object is equal to the current object.

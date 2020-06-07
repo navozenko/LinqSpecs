@@ -4,15 +4,15 @@ using System.Linq;
 
 namespace LinqSpecs.Tests
 {
-	public class SampleRepository : ReadOnlyCollection<string>
-	{
-		public SampleRepository()
-			: base(new[] { "Jose", "Manuel", "Julian" })
-		{ }
+    public class SampleRepository : ReadOnlyCollection<string>
+    {
+        public SampleRepository()
+            : base(new[] { "Jose", "Manuel", "Julian" })
+        { }
 
-		public IEnumerable<string> Find(Specification<string> specfication)
-		{
-			return this.AsQueryable().Where(specfication.ToExpression());
-		}
-	}
+        public IEnumerable<string> Find(Specification<string> specfication)
+        {
+            return this.AsQueryable().Where(specfication.ToExpression());
+        }
+    }
 }

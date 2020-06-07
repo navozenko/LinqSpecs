@@ -4,11 +4,11 @@ using NUnit.Framework;
 
 namespace LinqSpecs.Tests
 {
-	//Note; no matter if you are using & operator, or && operator.. both works as an &&.
+    //Note; no matter if you are using & operator, or && operator.. both works as an &&.
 
-	[TestFixture]
-	public class AndSpecificationTests
-	{
+    [TestFixture]
+    public class AndSpecificationTests
+    {
         [Test]
         public void Constructor_should_throw_exception_when_argument_is_null()
         {
@@ -19,18 +19,18 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-		public void And_should_work()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));          
-			var specfication = new AndSpecification<string>(startWithJ, endsWithE);
+        public void And_should_work()
+        {
+            var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
+            var endsWithE = new AdHocSpecification<string>(n => n.EndsWith("e"));
+            var specfication = new AndSpecification<string>(startWithJ, endsWithE);
 
-			IEnumerable<string> result = new SampleRepository().Find(specfication);
+            IEnumerable<string> result = new SampleRepository().Find(specfication);
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.DoesNotContain(result, "Julian");
             CollectionAssert.DoesNotContain(result, "Manuel");
-		}
+        }
 
         [Test]
         public void Equals_returns_true_when_both_sides_are_equals()

@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Linq.Expressions;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests
 {
-	[TestFixture]
-	public class SpecificationTests
-	{
+    [TestFixture]
+    public class SpecificationTests
+    {
         [Test]
         public void Can_implicitly_convert_specification_to_expression()
         {

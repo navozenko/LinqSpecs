@@ -1,20 +1,20 @@
-using System;
+﻿using System;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests
 {
-	[TestFixture]
-	public class FalseSpecificationTests
-	{
+    [TestFixture]
+    public class FalseSpecificationTests
+    {
         [Test]
-		public void Should_work()
-		{
-			var spec = new FalseSpecification<string>();
+        public void Should_work()
+        {
+            var spec = new FalseSpecification<string>();
 
             var result = new SampleRepository().Find(spec);
 
             CollectionAssert.IsEmpty(result);
-		}
+        }
 
         [Test]
         public void Equals_returns_true_when_both_sides_are_equals()

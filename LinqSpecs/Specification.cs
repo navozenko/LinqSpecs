@@ -11,8 +11,8 @@ namespace LinqSpecs
     /// using logical AND, OR and NOT operators.
     /// </summary>
     [Serializable]
-	public abstract class Specification<T>
-	{
+    public abstract class Specification<T>
+    {
         /// <summary>
         /// Returns an expression that defines this query.
         /// </summary>
@@ -36,17 +36,17 @@ namespace LinqSpecs
         /// Override operator false for supporting &amp;&amp; and || operations
         /// </summary>
         public static bool operator false(Specification<T> spec)
-		{
-			return false;
-		}
+        {
+            return false;
+        }
 
         /// <summary>
         /// Override operator true for supporting &amp;&amp; and || operations
         /// </summary>
         public static bool operator true(Specification<T> spec)
-		{
-			return false;
-		}
+        {
+            return false;
+        }
 
         /// <summary>
         /// Allows to combine two query specifications using a logical AND operation.
@@ -60,16 +60,16 @@ namespace LinqSpecs
         /// Allows to combine two query specifications using a logical OR operation.
         /// </summary>
         public static Specification<T> operator |(Specification<T> spec1, Specification<T> spec2)
-		{
-			return new OrSpecification<T>(spec1, spec2);
-		}
+        {
+            return new OrSpecification<T>(spec1, spec2);
+        }
 
         /// <summary>
         /// Negates the given specification.
         /// </summary>
         public static Specification<T> operator !(Specification<T> spec)
-		{
-			return new NotSpecification<T>(spec);
-		}
-	}
+        {
+            return new NotSpecification<T>(spec);
+        }
+    }
 }

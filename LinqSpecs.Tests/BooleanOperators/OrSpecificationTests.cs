@@ -3,9 +3,9 @@ using NUnit.Framework;
 
 namespace LinqSpecs.Tests
 {
-	[TestFixture]
-	public class OrSpecificationTests
-	{
+    [TestFixture]
+    public class OrSpecificationTests
+    {
         [Test]
         public void Constructor_should_throw_exception_when_argument_is_null()
         {
@@ -16,18 +16,18 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-		public void Or_should_work()
-		{
-			var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
-			var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
+        public void Or_should_work()
+        {
+            var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
+            var endsWithN = new AdHocSpecification<string>(n => n.EndsWith("n"));
 
-			var result = new SampleRepository()
-				.Find(new OrSpecification<string>(startWithJ, endsWithN));
+            var result = new SampleRepository()
+                .Find(new OrSpecification<string>(startWithJ, endsWithN));
 
             CollectionAssert.Contains(result, "Jose");
             CollectionAssert.Contains(result, "Julian");
             CollectionAssert.DoesNotContain(result, "Manuel");
-		}
+        }
 
         [Test]
         public void Equals_returns_true_when_both_sides_are_equals()
