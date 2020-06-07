@@ -14,7 +14,7 @@ namespace LinqSpecs
         private Expression<Func<T, bool>> _predicate;
 
         // For serialization only
-        private byte[] _serializedPredicate;
+        private byte[]? _serializedPredicate;
 
         /// <summary>
         /// Creates a custom ad-hoc <see cref="Specification{T}"/> from the given predicate expression.
@@ -41,7 +41,7 @@ namespace LinqSpecs
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            _predicate = (Expression<Func<T, bool>>)CreateSerializer().Deserialize(_serializedPredicate);
+            _predicate = (Expression<Func<T, bool>>)CreateSerializer().Deserialize(_serializedPredicate!);
         }
 
         private static IExpressionSerializer CreateSerializer()

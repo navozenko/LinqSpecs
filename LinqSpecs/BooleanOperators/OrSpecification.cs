@@ -32,11 +32,9 @@ namespace LinqSpecs
                 return false;
             if (ReferenceEquals(this, other))
                 return true;
-            if (GetType() != other.GetType())
-                return false;
-
-            var otherSpec = other as OrSpecification<T>;
-            return _spec1.Equals(otherSpec._spec1) && _spec2.Equals(otherSpec._spec2);
+            if (other is OrSpecification<T> otherSpec)
+                return _spec1.Equals(otherSpec._spec1) && _spec2.Equals(otherSpec._spec2);
+            return false;
         }
 
         public override int GetHashCode()

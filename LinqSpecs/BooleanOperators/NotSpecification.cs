@@ -28,11 +28,9 @@ namespace LinqSpecs
                 return false;
             if (ReferenceEquals(this, other))
                 return true;
-            if (GetType() != other.GetType())
-                return false;
-
-            var otherSpec = other as NotSpecification<T>;
-            return _spec.Equals(otherSpec._spec);
+            if (other is NotSpecification<T> otherSpec)
+                return _spec.Equals(otherSpec._spec);
+            return false;
         }
 
         public override int GetHashCode()
