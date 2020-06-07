@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("LinqSpecs.Tests")]
+[assembly: InternalsVisibleTo("LinqSpecs.UnitTests")]
 
 namespace LinqSpecs
 {

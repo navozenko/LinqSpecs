@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSpecs", "LinqSpecs\LinqSpecs.csproj", "{D60875A3-0DE2-409D-86A0-F540224D054C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSpecs.Tests", "LinqSpecs.Tests\LinqSpecs.Tests.csproj", "{0FBC6204-F18A-4D96-9C5E-39F925E7427C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSpecs.UnitTests", "LinqSpecs.UnitTests\LinqSpecs.UnitTests.csproj", "{0FBC6204-F18A-4D96-9C5E-39F925E7427C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7AD41A5-AE94-4151-9527-13EC4FFA18C8}"
 	ProjectSection(SolutionItems) = preProject
