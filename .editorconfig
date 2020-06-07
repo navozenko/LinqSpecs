@@ -1,0 +1,17 @@
+﻿# EditorConfig to support per-solution formatting
+# See: https://aka.ms/editorconfigdocs
+
+root = true
+
+[*]
+indent_style = space
+trim_trailing_whitespace = true
+charset = utf-8-bom
+insert_final_newline = true
+
+[*.{cs}]
+indent_size = 4
+dotnet_sort_system_directives_first = true
+
+[*.{xml,config,*proj,nuspec,props,resx,targets,yml,tasks}]
+indent_size = 2
