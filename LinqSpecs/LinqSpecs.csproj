@@ -4,10 +4,10 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1;net40</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>3.0.1</Version>
+    <Version>3.1.0</Version>
     <Authors>José F. Romaniello, Sergey Navozenko</Authors>
     <Company></Company>
-    <Copyright>Copyright © 2010-2019</Copyright>
+    <Copyright>Copyright © 2010-2020</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/navozenko/LinqSpecs</PackageProjectUrl>
