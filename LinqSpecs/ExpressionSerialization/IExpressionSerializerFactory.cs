@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LinqSpecs
+﻿namespace LinqSpecs
 {
     /// <summary>Creates instances of expression serializers.</summary>
     public interface IExpressionSerializerFactory

@@ -6,17 +6,17 @@ namespace LinqSpecs
     /// <summary>
     /// Specification which is not satisfied by any object.
     /// </summary>
-	[Serializable]
+    [Serializable]
     public class FalseSpecification<T> : Specification<T>
     {
         /// <summary>
         /// Returns an expression that defines this query.
         /// </summary>
-		public override Expression<Func<T, bool>> ToExpression()
+        public override Expression<Func<T, bool>> ToExpression()
         {
             return x => false;
         }
-
+        
         /// <summary>
         /// Determines whether the specified object is equal to the current object.
         /// </summary>
@@ -28,7 +28,7 @@ namespace LinqSpecs
                 return true;
             return GetType() == other.GetType();
         }
-
+        
         /// <summary>
         /// Returns a hash code for the current object.
         /// </summary>

@@ -7,7 +7,7 @@ namespace LinqSpecs
     /// <summary>
     /// Combines two specifications by using logical AND operation.
     /// </summary>
-	[Serializable]
+    [Serializable]
     internal class AndSpecification<T> : Specification<T>
     {
         private readonly Specification<T> _spec1;

@@ -6,7 +6,7 @@ namespace LinqSpecs
     /// <summary>
     /// Specification which is satisfied by any object.
     /// </summary>
-	[Serializable]
+    [Serializable]
     public class TrueSpecification<T> : Specification<T>
     {
         /// <summary>
@@ -16,7 +16,7 @@ namespace LinqSpecs
         {
             return x => true;
         }
-
+        
         /// <summary>
         /// Determines whether the specified object is equal to the current object.
         /// </summary>
@@ -28,7 +28,7 @@ namespace LinqSpecs
                 return true;
             return GetType() == other.GetType();
         }
-
+        
         /// <summary>
         /// Returns a hash code for the current object.
         /// </summary>
