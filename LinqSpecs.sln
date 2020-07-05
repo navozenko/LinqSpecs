@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSpecs", "LinqSpecs\Linq
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSpecs.UnitTests", "LinqSpecs.UnitTests\LinqSpecs.UnitTests.csproj", "{0FBC6204-F18A-4D96-9C5E-39F925E7427C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqSpecs.DatabaseTests", "LinqSpecs.DatabaseTests\LinqSpecs.DatabaseTests.csproj", "{B269AA58-028E-4BA7-ADBC-3848A4018CAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSpecs.DatabaseTests", "LinqSpecs.DatabaseTests\LinqSpecs.DatabaseTests.csproj", "{B269AA58-028E-4BA7-ADBC-3848A4018CAE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7AD41A5-AE94-4151-9527-13EC4FFA18C8}"
 	ProjectSection(SolutionItems) = preProject

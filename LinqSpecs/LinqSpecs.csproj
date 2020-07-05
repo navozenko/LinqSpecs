@@ -14,6 +14,8 @@
     <PackageTags>linq specification spec ddd</PackageTags>
     <RepositoryUrl>https://github.com/navozenko/LinqSpecs</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../LinqSpecs.snk</AssemblyOriginatorKeyFile>
     <Description>LinqSpecs is a framework that will help you to create specifications for LINQ queries.
 
 Supported platforms:
