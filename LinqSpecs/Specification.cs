@@ -46,7 +46,7 @@ namespace LinqSpecs
         }
 
         /// <summary>
-        /// Allows to combine two query specifications using a logical AND operation.
+        /// Combines two query specifications using a logical AND operation.
         /// </summary>
         public static Specification<T> operator &(Specification<T> spec1, Specification<T> spec2)
         {
@@ -54,11 +54,43 @@ namespace LinqSpecs
         }
 
         /// <summary>
-        /// Allows to combine two query specifications using a logical OR operation.
+        /// Combines a query specification with a lambda predicate using a logical AND operation.
+        /// </summary>
+        public static Specification<T> operator &(Specification<T> spec, Expression<Func<T,bool>> predicate)
+        {
+            return new AndSpecification<T>(spec, new AdHocSpecification<T>(predicate));
+        }
+
+        /// <summary>
+        /// Combines a query specification with a lambda predicate using a logical AND operation.
+        /// </summary>
+        public static Specification<T> operator &(Expression<Func<T, bool>> predicate, Specification<T> spec)
+        {
+            return new AndSpecification<T>(new AdHocSpecification<T>(predicate), spec);
+        }
+
+        /// <summary>
+        /// Combines two query specifications using a logical OR operation.
         /// </summary>
         public static Specification<T> operator |(Specification<T> spec1, Specification<T> spec2)
         {
             return new OrSpecification<T>(spec1, spec2);
+        }
+
+        /// <summary>
+        /// Combines a query specification with a lambda predicate using a logical OR operation.
+        /// </summary>
+        public static Specification<T> operator |(Specification<T> spec, Expression<Func<T, bool>> predicate)
+        {
+            return new OrSpecification<T>(spec, new AdHocSpecification<T>(predicate));
+        }
+
+        /// <summary>
+        /// Combines a query specification with a lambda predicate using a logical OR operation.
+        /// </summary>
+        public static Specification<T> operator |(Expression<Func<T, bool>> predicate, Specification<T> spec)
+        {
+            return new OrSpecification<T>(new AdHocSpecification<T>(predicate), spec);
         }
 
         /// <summary>

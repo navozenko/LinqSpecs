@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 using NUnit.Framework;
 
 namespace LinqSpecs.DatabaseTests
@@ -72,6 +74,19 @@ namespace LinqSpecs.DatabaseTests
             var hasMultipleOrdersSpec = new AdHocSpecification<Customer>(x => x.Orders.Count() > 1);
             var highTotalPriceSpec = new AdHocSpecification<Customer>(x => x.Orders.Sum(y => y.Price) > 500);
             var vipSpec = hasMultipleOrdersSpec && highTotalPriceSpec;
+
+            var customers = db.Customers.Where(vipSpec).Select(x => x.Name).ToList();
+
+            Assert.That(customers, Is.EquivalentTo(new[] { "Triple-order Customer" }));
+        }
+
+        [Test]
+        public void СombinedSpecificationWithPredicate()
+        {
+            using var db = new SampleDbContext();
+            var hasMultipleOrdersSpec = new AdHocSpecification<Customer>(x => x.Orders.Count() > 1);
+            Expression<Func<Customer,bool>> highTotalPriceSpec = x => x.Orders.Sum(y => y.Price) > 500;
+            var vipSpec = hasMultipleOrdersSpec & highTotalPriceSpec;
 
             var customers = db.Customers.Where(vipSpec).Select(x => x.Name).ToList();
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests
@@ -47,6 +48,28 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
+        public void Equals_returns_true_when_both_sides_are_equals_and_left_side_is_predicate()
+        {
+            var s1 = new AdHocSpecification<string>(x => x.Length > 1);
+            Expression<Func<string,bool>> s2 = x => x.Length > 2;
+            var spec = s1 & s2;
+
+            Assert.IsInstanceOf<AndSpecification<string>>(spec);
+            Assert.IsTrue(spec.Equals(spec));
+        }
+
+        [Test]
+        public void Equals_returns_true_when_both_sides_are_equals_and_right_side_is_predicate()
+        {
+            Expression<Func<string, bool>> s1 = x => x.Length > 1;
+            var s2 = new AdHocSpecification<string>(x => x.Length > 2);
+            var spec = s1 & s2;
+
+            Assert.IsInstanceOf<AndSpecification<string>>(spec);
+            Assert.IsTrue(spec.Equals(spec));
+        }
+
+        [Test]
         public void Equals_returns_false_when_both_sides_are_not_equals()
         {
             var s1 = new AdHocSpecification<string>(x => x.Length > 1);
@@ -65,7 +88,7 @@ namespace LinqSpecs.Tests
         }
 
         [Test]
-        public void GetHashCode_retuns_same_value_for_equal_specifications()
+        public void GetHashCode_returns_same_value_for_equal_specifications()
         {
             var s1 = new AdHocSpecification<string>(x => x.Length > 1);
             var s2 = new AdHocSpecification<string>(x => x.Length > 2);
