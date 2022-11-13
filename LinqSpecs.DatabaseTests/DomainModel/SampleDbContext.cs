@@ -9,7 +9,7 @@ namespace LinqSpecs.DatabaseTests
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=Sample.db;");
+            optionsBuilder.UseSqlite("Data Source=file::memory:?cache=shared");
         }
     }
 }
