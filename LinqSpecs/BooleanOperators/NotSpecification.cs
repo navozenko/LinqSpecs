@@ -8,16 +8,16 @@ namespace LinqSpecs
     /// </summary>
     internal class NotSpecification<T> : Specification<T>
     {
-        private readonly Specification<T> _spec;
+        public Specification<T> Source { get; }
 
-        public NotSpecification(Specification<T> spec)
+        public NotSpecification(Specification<T> source)
         {
-            _spec = spec ?? throw new ArgumentNullException(nameof(spec));
+            Source = source ?? throw new ArgumentNullException(nameof(source));
         }
 
         public override Expression<Func<T, bool>> ToExpression()
         {
-            var expr = _spec.ToExpression();
+            var expr = Source.ToExpression();
             return Expression.Lambda<Func<T, bool>>(Expression.Not(expr.Body), expr.Parameters);
         }
 
@@ -28,13 +28,13 @@ namespace LinqSpecs
             if (ReferenceEquals(this, other))
                 return true;
             if (other is NotSpecification<T> otherSpec)
-                return _spec.Equals(otherSpec._spec);
+                return Source.Equals(otherSpec.Source);
             return false;
         }
 
         public override int GetHashCode()
         {
-            return _spec.GetHashCode() ^ GetType().GetHashCode();
+            return Source.GetHashCode() ^ GetType().GetHashCode();
         }
     }
 }

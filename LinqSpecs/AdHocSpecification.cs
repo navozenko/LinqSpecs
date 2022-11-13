@@ -8,14 +8,14 @@ namespace LinqSpecs
     /// </summary>
     public class AdHocSpecification<T> : Specification<T>
     {
-        private readonly Expression<Func<T, bool>> _predicate;
+        public Expression<Func<T, bool>> Predicate { get; }
 
         /// <summary>
         /// Creates a custom ad-hoc <see cref="Specification{T}"/> from the given predicate expression.
         /// </summary>
         public AdHocSpecification(Expression<Func<T, bool>> predicate)
         {
-            _predicate = predicate ?? throw new ArgumentNullException(nameof(predicate));
+            Predicate = predicate ?? throw new ArgumentNullException(nameof(predicate));
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace LinqSpecs
         /// </summary>
         public override Expression<Func<T, bool>> ToExpression()
         {
-            return _predicate;
+            return Predicate;
         }
     }
 }

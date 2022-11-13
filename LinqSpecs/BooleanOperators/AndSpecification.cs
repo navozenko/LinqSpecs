@@ -9,19 +9,19 @@ namespace LinqSpecs
     /// </summary>
     internal class AndSpecification<T> : Specification<T>
     {
-        private readonly Specification<T> _spec1;
-        private readonly Specification<T> _spec2;
+        public Specification<T> Left { get; }
+        public Specification<T> Right { get; }
 
-        public AndSpecification(Specification<T> spec1, Specification<T> spec2)
+        public AndSpecification(Specification<T> left, Specification<T> right)
         {
-            _spec1 = spec1 ?? throw new ArgumentNullException(nameof(spec1));
-            _spec2 = spec2 ?? throw new ArgumentNullException(nameof(spec2));
+            Left = left ?? throw new ArgumentNullException(nameof(left));
+            Right = right ?? throw new ArgumentNullException(nameof(right));
         }
 
         public override Expression<Func<T, bool>> ToExpression()
         {
-            var expr1 = _spec1.ToExpression();
-            var expr2 = _spec2.ToExpression();
+            var expr1 = Left.ToExpression();
+            var expr2 = Right.ToExpression();
             return expr1.AndAlso(expr2);
         }
 
@@ -32,13 +32,13 @@ namespace LinqSpecs
             if (ReferenceEquals(this, other))
                 return true;
             if (other is AndSpecification<T> otherSpec)
-                return _spec1.Equals(otherSpec._spec1) && _spec2.Equals(otherSpec._spec2);
+                return Left.Equals(otherSpec.Left) && Right.Equals(otherSpec.Right);
             return false;
         }
 
         public override int GetHashCode()
         {
-            return _spec1.GetHashCode() ^ _spec2.GetHashCode() ^ GetType().GetHashCode();
+            return Left.GetHashCode() ^ Right.GetHashCode() ^ GetType().GetHashCode();
         }
     }
 }
