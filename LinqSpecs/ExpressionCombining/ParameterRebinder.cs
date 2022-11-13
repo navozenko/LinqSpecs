@@ -25,8 +25,7 @@ namespace LinqSpecs.ExpressionCombining
 
         protected override Expression VisitParameter(ParameterExpression p)
         {
-            ParameterExpression replacement;
-            if (_map.TryGetValue(p, out replacement))
+            if (_map.TryGetValue(p, out ParameterExpression replacement))
                 p = replacement;
             return base.VisitParameter(p);
         }

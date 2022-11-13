@@ -6,7 +6,6 @@ namespace LinqSpecs
     /// <summary>
     /// Specification which is not satisfied by any object.
     /// </summary>
-    [Serializable]
     public class FalseSpecification<T> : Specification<T>
     {
         /// <summary>
@@ -22,7 +21,7 @@ namespace LinqSpecs
         /// </summary>
         public override bool Equals(object other)
         {
-            if (ReferenceEquals(null, other))
+            if (other is null)
                 return false;
             if (ReferenceEquals(this, other))
                 return true;

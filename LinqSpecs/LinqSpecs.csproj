@@ -1,27 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net40</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <Version>3.1.1</Version>
     <Authors>José F. Romaniello, Sergey Navozenko</Authors>
     <Company></Company>
-    <Copyright>Copyright © 2010-2020</Copyright>
+    <Copyright>Copyright © 2010-2022</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/navozenko/LinqSpecs</PackageProjectUrl>
     <PackageTags>linq specification spec ddd</PackageTags>
     <RepositoryUrl>https://github.com/navozenko/LinqSpecs</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>../LinqSpecs.snk</AssemblyOriginatorKeyFile>
     <Description>LinqSpecs is a framework that will help you to create specifications for LINQ queries.
 
 Supported platforms:
 - .NET Standard 2.0+
-- .NET Framework 4.0+
-- .NET Core 2.0+</Description>
+- .NET Framework 4.6.1+
+- .NET Core 2.0+
+- .NET 5.0+</Description>
   </PropertyGroup>
 
   <ItemGroup>

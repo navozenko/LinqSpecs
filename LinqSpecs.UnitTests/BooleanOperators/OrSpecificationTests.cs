@@ -74,19 +74,5 @@ namespace LinqSpecs.Tests
             Assert.IsInstanceOf<OrSpecification<string>>(spec2);
             Assert.AreEqual(spec1.GetHashCode(), spec2.GetHashCode());
         }
-
-        [Test]
-        public void Should_be_serializable()
-        {
-            var sourceSpec1 = new AdHocSpecification<string>(n => n.StartsWith("it"));
-            var sourceSpec2 = new AdHocSpecification<string>(n => n.EndsWith("works"));
-            var spec = new OrSpecification<string>(sourceSpec1, sourceSpec2);
-
-            var deserializedSpec = Helpers.SerializeAndDeserialize(spec);
-
-            Assert.That(deserializedSpec, Is.InstanceOf<OrSpecification<string>>());
-            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it works very well"), Is.True);
-            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("fails"), Is.False);
-        }
     }
 }

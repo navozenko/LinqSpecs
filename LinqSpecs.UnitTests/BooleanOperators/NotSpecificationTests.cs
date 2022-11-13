@@ -62,18 +62,5 @@ namespace LinqSpecs.Tests
             Assert.IsInstanceOf<NotSpecification<string>>(spec2);
             Assert.AreEqual(spec1.GetHashCode(), spec2.GetHashCode());
         }
-
-        [Test]
-        public void Should_be_serializable()
-        {
-            var sourceSpec = new AdHocSpecification<string>(n => n == "it fails");
-            var spec = new NotSpecification<string>(sourceSpec);
-
-            var deserializedSpec = Helpers.SerializeAndDeserialize(spec);
-
-            Assert.That(deserializedSpec, Is.InstanceOf<NotSpecification<string>>());
-            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it works"), Is.True);
-            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("it fails"), Is.False);
-        }
     }
 }

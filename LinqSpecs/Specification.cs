@@ -7,7 +7,6 @@ namespace LinqSpecs
     /// Base class for query specifications that can be combined
     /// using logical AND, OR and NOT operators.
     /// </summary>
-    [Serializable]
     public abstract class Specification<T>
     {
         /// <summary>

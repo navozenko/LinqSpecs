@@ -6,7 +6,6 @@ namespace LinqSpecs
     /// <summary>
     /// Negates a source specification.
     /// </summary>
-    [Serializable]
     internal class NotSpecification<T> : Specification<T>
     {
         private readonly Specification<T> _spec;
@@ -24,7 +23,7 @@ namespace LinqSpecs
 
         public override bool Equals(object other)
         {
-            if (ReferenceEquals(null, other))
+            if (other is null)
                 return false;
             if (ReferenceEquals(this, other))
                 return true;

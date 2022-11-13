@@ -46,16 +46,5 @@ namespace LinqSpecs.Tests
 
             Assert.AreEqual(spec1.GetHashCode(), spec2.GetHashCode());
         }
-
-        [Test]
-        public void Should_be_serializable()
-        {
-            var spec = new TrueSpecification<string>();
-
-            var deserializedSpec = Helpers.SerializeAndDeserialize(spec);
-
-            Assert.That(deserializedSpec, Is.InstanceOf<TrueSpecification<string>>());
-            Assert.That(deserializedSpec.ToExpression().Compile().Invoke("any"), Is.True);
-        }
     }
 }

@@ -7,7 +7,6 @@ namespace LinqSpecs
     /// <summary>
     /// Combines two specifications by using logical AND operation.
     /// </summary>
-    [Serializable]
     internal class AndSpecification<T> : Specification<T>
     {
         private readonly Specification<T> _spec1;
@@ -28,7 +27,7 @@ namespace LinqSpecs
 
         public override bool Equals(object other)
         {
-            if (ReferenceEquals(null, other))
+            if (other is null)
                 return false;
             if (ReferenceEquals(this, other))
                 return true;
