@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace LinqSpecs
+namespace LinqSpecs.Operators
 {
     /// <summary>
     /// Negates a source specification.
     /// </summary>
-    internal class NotSpecification<T> : Specification<T>
+    public class NotSpecification<T> : Specification<T>
     {
         public Specification<T> Source { get; }
 

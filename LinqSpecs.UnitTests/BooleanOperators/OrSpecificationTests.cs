@@ -1,4 +1,5 @@
 ﻿using System;
+using LinqSpecs.Operators;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests

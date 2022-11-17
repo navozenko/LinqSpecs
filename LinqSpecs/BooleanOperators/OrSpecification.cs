@@ -2,12 +2,12 @@
 using System.Linq.Expressions;
 using LinqSpecs.ExpressionCombining;
 
-namespace LinqSpecs
+namespace LinqSpecs.Operators
 {
     /// <summary>
     /// Combines two specifications by using logical OR operation.
     /// </summary>
-    internal class OrSpecification<T> : Specification<T>
+    public class OrSpecification<T> : Specification<T>
     {
         public Specification<T> Left { get; }
         public Specification<T> Right { get; }

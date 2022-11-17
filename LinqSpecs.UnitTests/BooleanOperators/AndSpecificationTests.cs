@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LinqSpecs.Operators;
 using NUnit.Framework;
 
 namespace LinqSpecs.Tests
