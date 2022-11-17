@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <Version>3.1.1</Version>
@@ -21,8 +21,8 @@
     <Description>LinqSpecs is a framework that will help you to create specifications for LINQ queries.
 
 Supported platforms:
-- .NET Standard 2.0+
-- .NET Framework 4.6.1+
+- .NET Standard 1.0+
+- .NET Framework 4.5+
 - .NET Core 2.0+
 - .NET 5.0+</Description>
   </PropertyGroup>
