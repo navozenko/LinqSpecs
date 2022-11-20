@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace LinqSpecs.ExpressionCombining
+namespace LinqSpecs.Utilities
 {
     // ------------------------------------------------------------------------------------------
     // This code was taken from the MSDN Blog meek: LINQ to Entities: Combining Predicates
     // http://blogs.msdn.com/b/meek/archive/2008/05/02/linq-to-entities-combining-predicates.aspx
     // ------------------------------------------------------------------------------------------
 
-    internal class ParameterRebinder : ExpressionVisitor
+    internal class ExpressionParameterRebinder : ExpressionVisitor
     {
         private readonly Dictionary<ParameterExpression, ParameterExpression> _map;
 
-        public ParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map)
+        public ExpressionParameterRebinder(Dictionary<ParameterExpression, ParameterExpression> map)
         {
             _map = map ?? new Dictionary<ParameterExpression, ParameterExpression>();
         }
@@ -20,7 +20,7 @@ namespace LinqSpecs.ExpressionCombining
         public static Expression ReplaceParameters(
             Dictionary<ParameterExpression, ParameterExpression> map, Expression exp)
         {
-            return new ParameterRebinder(map).Visit(exp);
+            return new ExpressionParameterRebinder(map).Visit(exp);
         }
 
         protected override Expression VisitParameter(ParameterExpression p)
