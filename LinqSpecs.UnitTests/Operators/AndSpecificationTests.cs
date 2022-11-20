@@ -14,10 +14,9 @@ namespace LinqSpecs.Tests
         public void Constructor_should_throw_exception_when_argument_is_null()
         {
             var spec = new AdHocSpecification<string>(x => x.Length == 1);
-            var nullSpec = Helpers.NullSpecification;
 
-            Assert.Throws<ArgumentNullException>(() => new AndSpecification<string>(spec, nullSpec));
-            Assert.Throws<ArgumentNullException>(() => new AndSpecification<string>(nullSpec, spec));
+            Assert.Throws<ArgumentNullException>(() => new AndSpecification<string>(spec, null!));
+            Assert.Throws<ArgumentNullException>(() => new AndSpecification<string>(null!, spec));
         }
 
         [Test]
@@ -62,7 +61,7 @@ namespace LinqSpecs.Tests
             Assert.IsFalse(spec.Equals(s2 & s1)); // AndAlso is not commutable
             Assert.IsFalse(spec.Equals(s1 & s3));
             Assert.IsFalse(spec.Equals(s3 & s2));
-            Assert.IsFalse(spec.Equals(Helpers.NullSpecification));
+            Assert.IsFalse(spec.Equals(null!));
         }
 
         [Test]

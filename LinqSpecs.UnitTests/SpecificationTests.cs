@@ -20,9 +20,11 @@ namespace LinqSpecs.Tests
         [Test]
         public void Implicit_operator_should_throw_exception_when_argument_is_null()
         {
+            Specification<string> spec = null!;
+
             Assert.Throws<ArgumentNullException>(() =>
             {
-                Expression<Func<string, bool>> expr = Helpers.NullSpecification;
+                Expression<Func<string, bool>> expr = spec;
             });
         }
 

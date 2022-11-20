@@ -35,7 +35,7 @@ namespace LinqSpecs.Tests
             Assert.IsFalse(spec.Equals(10));
             Assert.IsFalse(spec.Equals(new AdHocSpecification<string>(x => true)));
             Assert.IsFalse(spec.Equals(new TrueSpecification<object>()));
-            Assert.IsFalse(spec.Equals(Helpers.NullSpecification));
+            Assert.IsFalse(spec.Equals(null!));
         }
 
         [Test]

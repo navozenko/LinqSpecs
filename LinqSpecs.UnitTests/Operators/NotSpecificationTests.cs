@@ -10,7 +10,7 @@ namespace LinqSpecs.Tests
         [Test]
         public void Constructor_should_throw_exception_when_argument_is_null()
         {
-            Assert.Throws<ArgumentNullException>(() => new NotSpecification<string>(Helpers.NullSpecification));
+            Assert.Throws<ArgumentNullException>(() => new NotSpecification<string>(null!));
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace LinqSpecs.Tests
             Assert.IsFalse(spec.Equals(sourceSpec1));
             Assert.IsFalse(spec.Equals(sourceSpec2));
             Assert.IsFalse(spec.Equals(!sourceSpec2));
-            Assert.IsFalse(spec.Equals(Helpers.NullSpecification));
+            Assert.IsFalse(spec.Equals(null!));
         }
 
         [Test]
