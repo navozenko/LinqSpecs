@@ -38,7 +38,7 @@ namespace LinqSpecs.Operators
 
         public override int GetHashCode()
         {
-            return Left.GetHashCode() ^ Right.GetHashCode() ^ GetType().GetHashCode();
+            return HashCodeHelpers.Combine(Left, Right, GetType());
         }
     }
 }

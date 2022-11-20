@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using LinqSpecs.Utilities;
 
 namespace LinqSpecs.Operators
 {
@@ -34,7 +35,7 @@ namespace LinqSpecs.Operators
 
         public override int GetHashCode()
         {
-            return Source.GetHashCode() ^ GetType().GetHashCode();
+            return HashCodeHelpers.Combine(Source, GetType());
         }
     }
 }
