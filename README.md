@@ -119,7 +119,7 @@ This is an useful feature when you are writing Asserts in your unit tests.
 
 ### AdHocSpecification
 
-The AdHocSpecification is an alternative way to write a specification without writing a class. You should not abuse of them, and try to write those in a single place as explained above. Also AdHocSpecification doesn't implement Equals, so two AdHocSpecifications are equal only if they are the same instance.
+The AdHocSpecification is an alternative way to write a specification without writing a class. You should not abuse of them, and try to write those in a single place as explained above.
 
 ```csharp
 var spec = new AdHocSpecification<Customer>(c => c.IsPreferred && !c.HasDebt);
