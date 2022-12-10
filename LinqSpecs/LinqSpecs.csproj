@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard1.0;netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>3.1.1</Version>
+    <Version>3.2.0</Version>
     <Authors>José F. Romaniello, Sergey Navozenko</Authors>
     <Company></Company>
     <Copyright>Copyright © 2010-2022</Copyright>
