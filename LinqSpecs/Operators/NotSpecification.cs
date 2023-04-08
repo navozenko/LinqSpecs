@@ -22,7 +22,7 @@ namespace LinqSpecs.Operators
             return Expression.Lambda<Func<T, bool>>(Expression.Not(expr.Body), expr.Parameters);
         }
 
-        public override bool Equals(object other)
+        public override bool Equals(object? other)
         {
             if (other is null)
                 return false;

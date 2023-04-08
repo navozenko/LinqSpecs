@@ -25,7 +25,7 @@ namespace LinqSpecs.Utilities
 
         protected override Expression VisitParameter(ParameterExpression p)
         {
-            if (_map.TryGetValue(p, out ParameterExpression replacement))
+            if (_map.TryGetValue(p, out ParameterExpression? replacement))
                 p = replacement;
             return base.VisitParameter(p);
         }

@@ -25,7 +25,7 @@ namespace LinqSpecs.Operators
             return expr1.AndAlso(expr2);
         }
 
-        public override bool Equals(object other)
+        public override bool Equals(object? other)
         {
             if (other is null)
                 return false;
