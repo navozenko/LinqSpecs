@@ -4,6 +4,9 @@ LinqSpecs is a framework that will help you to create specifications for LINQ qu
 
 Almost all users of LINQ create specifications in their daily work, but most of them write those specifications scattered all over the code. The idea behind this project is to help the user to write, test and expose specifications as first-class objects. You will learn how to use LinqSpecs in this brief document.
 
+[![NuGet](https://img.shields.io/nuget/v/LinqSpecs.svg)](https://nuget.org/packages/LinqSpecs)
+[![Nuget](https://img.shields.io/nuget/dt/LinqSpecs.svg)](https://nuget.org/packages/LinqSpecs) 
+
 ### Defining simple specifications
 
 In order to define our first specification named "CustomerFromCountrySpec" we need to inherit from Specification\<T\>:
