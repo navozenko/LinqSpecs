@@ -103,6 +103,18 @@ var result = customerRepository.Find(spec1 && !spec2);
 
 This code returns all customers from Argentina that are not preferred. The & operator work as an && (AndAlso) operator. The same for | and ||.
 
+### Logical operations for specification and expression
+
+You also can combine specifications with expressions using "&" and "|" operators. For example:
+
+```csharp
+var spec = new CustomerFromCountrySpec(Country.Argentina);
+Expression<Func<Customer, bool>> expr = c => c.IsPreferred && !c.HasDebt;
+var result = customerRepository.Find(spec & expr);
+```
+
+This code returns all customers from Argentina that are preferred. AndAlso operator "&&" doesn't work. The same for | and ||.
+
 ### Comparing
 
 The result of and'ing, or'ing and negating specifications implements equality members. That's said:

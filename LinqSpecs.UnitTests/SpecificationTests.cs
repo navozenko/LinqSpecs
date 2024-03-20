@@ -97,5 +97,43 @@ namespace LinqSpecs.Tests
             CollectionAssert.DoesNotContain(result, "Julian");
             CollectionAssert.Contains(result, "Manuel");
         }
+
+        [Test]
+        public void And_operator_with_expression__should_work()
+        {
+            var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
+            Expression<Func<string, bool>> endsWithE = n => n.EndsWith("e");
+
+            var resultR = new SampleRepository().Find(startWithJ & endsWithE);
+
+            CollectionAssert.Contains(resultR, "Jose");
+            CollectionAssert.DoesNotContain(resultR, "Julian");
+            CollectionAssert.DoesNotContain(resultR, "Manuel");
+
+            var resultL = new SampleRepository().Find(endsWithE & startWithJ);
+
+            CollectionAssert.Contains(resultL, "Jose");
+            CollectionAssert.DoesNotContain(resultL, "Julian");
+            CollectionAssert.DoesNotContain(resultL, "Manuel");
+        }
+
+        [Test]
+        public void Or_operator_with_expression_should_work()
+        {
+            var startWithJ = new AdHocSpecification<string>(n => n.StartsWith("J"));
+            Expression<Func<string, bool>> endsWithN = n => n.EndsWith("n");
+
+            var resultR = new SampleRepository().Find(startWithJ | endsWithN);
+
+            CollectionAssert.Contains(resultR, "Jose");
+            CollectionAssert.Contains(resultR, "Julian");
+            CollectionAssert.DoesNotContain(resultR, "Manuel");
+
+            var resultL = new SampleRepository().Find(startWithJ | endsWithN);
+
+            CollectionAssert.Contains(resultL, "Jose");
+            CollectionAssert.Contains(resultL, "Julian");
+            CollectionAssert.DoesNotContain(resultL, "Manuel");
+        }
     }
 }

@@ -54,11 +54,43 @@ namespace LinqSpecs
         }
 
         /// <summary>
+        /// Allows to combine specification with expression using a logical AND operation.
+        /// </summary>
+        public static Specification<T> operator &(Specification<T> spec, Expression<Func<T, bool>> expr)
+        {
+            return new AndSpecification<T>(spec, new AdHocSpecification<T>(expr));
+        }
+
+        /// <summary>
+        /// Allows to combine specification with expression using a logical AND operation.
+        /// </summary>
+        public static Specification<T> operator &(Expression<Func<T, bool>> expr, Specification<T> spec)
+        {
+            return new AndSpecification<T>(new AdHocSpecification<T>(expr), spec);
+        }
+
+        /// <summary>
         /// Allows to combine two query specifications using a logical OR operation.
         /// </summary>
         public static Specification<T> operator |(Specification<T> spec1, Specification<T> spec2)
         {
             return new OrSpecification<T>(spec1, spec2);
+        }
+
+        /// <summary>
+        /// Allows to combine specification with expression using a logical OR operation.
+        /// </summary>
+        public static Specification<T> operator |(Specification<T> spec, Expression<Func<T, bool>> expr)
+        {
+            return new OrSpecification<T>(spec, new AdHocSpecification<T>(expr));
+        }
+
+        /// <summary>
+        /// Allows to combine specification with expression using a logical OR operation.
+        /// </summary>
+        public static Specification<T> operator |(Expression<Func<T, bool>> expr, Specification<T> spec)
+        {
+            return new OrSpecification<T>(new AdHocSpecification<T>(expr), spec);
         }
 
         /// <summary>
